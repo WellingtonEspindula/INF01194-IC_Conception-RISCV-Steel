@@ -1,4 +1,4 @@
--smartorder -work work -V93 -top user_logic_tb -notimingchecks -gui -access +rw
-../../rtl/busca_padrao.vhd
-../tb/tb_padrao.vhd
+-smartorder -work work -sv -top unit_tests -notimingchecks -gui -access +rw
+../../rtl/rvsteel_core.v
+../tb/unit_tests.v
 

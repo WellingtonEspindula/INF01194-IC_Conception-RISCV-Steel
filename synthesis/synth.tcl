@@ -12,7 +12,7 @@ puts "Hostname : [info hostname]"
 ##############################################################################
 
 
-set DESIGN busca_padrao
+set DESIGN rvsteel_core
 set SYN_EFF medium
 set MAP_EFF high
 set DATE [clock format [clock seconds] -format "%b%d-%T"]
@@ -64,7 +64,8 @@ set_db / .leakage_power_effort medium
 ####################################################################
 
 
-read_hdl -vhdl ../rtl/busca_padrao.vhd
+#read_hdl -vhdl ../rtl/busca_padrao.vhd
+read_hdl -sv ../rtl/rvsteel_core.v
 elaborate $DESIGN
 puts "Runtime & Memory after 'read_hdl'"
 time_info Elaboration

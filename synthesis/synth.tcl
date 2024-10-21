@@ -64,7 +64,6 @@ set_db / .leakage_power_effort medium
 ####################################################################
 
 
-#read_hdl -vhdl ../rtl/busca_padrao.vhd
 read_hdl -sv ../rtl/rvsteel_core.v
 elaborate $DESIGN
 puts "Runtime & Memory after 'read_hdl'"
@@ -78,7 +77,7 @@ check_design -unresolved
 ## Constraints Setup
 ####################################################################
 
-read_sdc ../constraint/busca_padrao.sdc
+read_sdc ../constraint/rvsteel_core.sdc
 puts "The number of exceptions is [llength [vfind "design:$DESIGN" -exception *]]"
 
 

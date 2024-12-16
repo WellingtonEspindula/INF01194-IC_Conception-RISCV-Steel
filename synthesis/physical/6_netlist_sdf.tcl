@@ -9,7 +9,8 @@
 ##############################################################
 ##Export design netlist
 write_netlist busca_padrao.v
+write_sdf busca_padrao.sdf
 ##Annotate design delay
 extract_rc
 write_parasitics -set_load_file busca_padrao.cap
-write_sdf busca_padrao.sdf
+

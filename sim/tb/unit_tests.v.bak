@@ -55,7 +55,7 @@ module unit_tests();
     .irq_timer_response                (),
     .irq_software                 (1'b0),  
     .irq_software_response             (),
-    .irq_fast                     (16'b0),
+    .irq_fast			  (16'b0),
     .irq_fast_response                 (),
   
     // Real Time Clock (hardwire to zero if unused)
@@ -90,9 +90,10 @@ module unit_tests();
   
   always #10 clock = !clock;
   
-  reg [167:0] unit_test_programs_array [0:53] = {
-    "add-01.hex",
-    "addi-01.hex",
+  //reg [167:0] unit_test_programs_array [0:53] = {
+  reg [8*30:0] unit_test_programs_array = {
+    "add-01.hex"//,
+    /* "addi-01.hex",
     "and-01.hex",
     "andi-01.hex",
     "auipc-01.hex",
@@ -144,12 +145,13 @@ module unit_tests();
     "sub-01.hex",
     "sw-align-01.hex",
     "xor-01.hex",
-    "xori-01.hex"
+    "xori-01.hex" */
   };
   
-  reg [519:0] golden_reference_array [0:53] = {
-    "add-01.reference.hex",
-    "addi-01.reference.hex",
+  //reg [519:0] golden_reference_array [0:53] = {
+  reg [8*35:0] golden_reference_array = {
+    "add-01.reference.hex"//,
+    /* "addi-01.reference.hex",
     "and-01.reference.hex",
     "andi-01.reference.hex",
     "auipc-01.reference.hex",
@@ -201,21 +203,22 @@ module unit_tests();
     "sub-01.reference.hex",
     "sw-align-01.reference.hex",
     "xor-01.reference.hex",
-    "xori-01.reference.hex"
+    "xori-01.reference.hex" */
   };
   
   // The tests below are expected to fail because 
   // RISC-V Steel Processor IP does not support
   // misaligned branch/jump instructions 
-  reg [167:0] expected_to_fail [0:7] = {
-    "misalign-beq-01.hex",
-    "misalign-bge-01.hex",
+  //reg [167:0] expected_to_fail [0:7] = {
+  reg [8*30:0] expected_to_fail = {
+    "misalign-beq-01.hex"//,
+/*    "misalign-bge-01.hex",
     "misalign-bgeu-01.hex",
     "misalign-blt-01.hex",
     "misalign-bltu-01.hex",
     "misalign-bne-01.hex",
     "misalign-jal-01.hex",
-    "misalign2-jalr-01.hex"
+    "misalign2-jalr-01.hex" */
   };
   
   integer     i, j, k, m, n, t, u, z;

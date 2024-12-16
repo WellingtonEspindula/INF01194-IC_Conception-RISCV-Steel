@@ -12,26 +12,26 @@
 place_design
 
 ##Place pins in the chip sides
+#edit_pin -side Top -layer 4 -spread_type center -spacing 3 -pin {Bus2IP_Clk {Bus2IP_RdCE[0]} {Bus2IP_RdCE[1]} {Bus2IP_RdCE[2]} {Bus2IP_RdCE[3]} {Bus2IP_RdCE[4]} {Bus2IP_RdCE[5]} {Bus2IP_RdCE[6]} {Bus2IP_RdCE[7]} {Bus2IP_RdCE[8]} {Bus2IP_RdCE[9]} {Bus2IP_RdCE[10]} {Bus2IP_RdCE[11]} {Bus2IP_RdCE[12]} {Bus2IP_RdCE[13]} {Bus2IP_RdCE[14]}}
 
+#edit_pin -side Left -layer 3 -spread_type center -spacing 3 -pin {{Bus2IP_Data[0]} {Bus2IP_Data[1]} {Bus2IP_Data[2]} {Bus2IP_Data[3]} {Bus2IP_Data[4]} {Bus2IP_Data[5]} {Bus2IP_Data[6]} {Bus2IP_Data[7]} Bus2IP_Reset}
 
-edit_pin -side Top -layer 3 -spread_type center -spacing 9 -pin {clock reset halt {real_time_clock[0]} {real_time_clock[1]} {real_time_clock[2]} {real_time_clock[3]} {real_time_clock[4]} {real_time_clock[5]} {real_time_clock[6]} {real_time_clock[7]} {real_time_clock[8]} {real_time_clock[9]} {real_time_clock[10]} {real_time_clock[11]} {real_time_clock[12]} {real_time_clock[13]} {real_time_clock[14]} {real_time_clock[15]} {real_time_clock[16]} {real_time_clock[17]} {real_time_clock[18]} {real_time_clock[19]} {real_time_clock[20]} {real_time_clock[21]} {real_time_clock[22]} {real_time_clock[23]} {real_time_clock[24]} {real_time_clock[25]} {real_time_clock[26]} {real_time_clock[27]} {real_time_clock[28]} {real_time_clock[29]} {real_time_clock[30]} {real_time_clock[31]} {real_time_clock[32]} {real_time_clock[33]} {real_time_clock[34]} {real_time_clock[35]} {real_time_clock[36]} {real_time_clock[37]} {real_time_clock[38]} {real_time_clock[39]} {real_time_clock[40]} {real_time_clock[41]} {real_time_clock[42]} {real_time_clock[43]} {real_time_clock[44]} {real_time_clock[45]} {real_time_clock[46]} {real_time_clock[47]} {real_time_clock[48]} {real_time_clock[49]} {real_time_clock[50]} {real_time_clock[51]} {real_time_clock[52]} {real_time_clock[53]} {real_time_clock[54]} {real_time_clock[55]} {real_time_clock[56]} {real_time_clock[57]} {real_time_clock[58]} {real_time_clock[59]} {real_time_clock[60]} {real_time_clock[61]} {real_time_clock[62]} {real_time_clock[63]} }
+#edit_pin -side Bottom -layer 4 -spread_type center -spacing 3 -pin {{Bus2IP_WrCE[0]} {Bus2IP_WrCE[1]} {Bus2IP_WrCE[2]} {Bus2IP_WrCE[3]} {Bus2IP_WrCE[4]} {Bus2IP_WrCE[5]} {Bus2IP_WrCE[6]} {Bus2IP_WrCE[7]} {Bus2IP_WrCE[8]} {Bus2IP_WrCE[9]} {Bus2IP_WrCE[10]} {Bus2IP_WrCE[11]} {Bus2IP_WrCE[12]} {Bus2IP_WrCE[13]} {Bus2IP_WrCE[14]}}
 
-edit_pin -side Left -layer 3 -spread_type center -spacing 9 -pin { {read_data[0]} {read_data[1]} {read_data[2]} {read_data[3]} {read_data[4]} {read_data[5]} {read_data[6]} {read_data[7]} {read_data[8]} {read_data[9]} {read_data[10]} {read_data[11]} {read_data[12]} {read_data[13]} {read_data[14]} {read_data[15]} {read_data[16]} {read_data[17]} {read_data[18]} {read_data[19]} {read_data[20]} {read_data[21]} {read_data[22]} {read_data[23]} {read_data[24]} {read_data[25]} {read_data[26]} {read_data[27]} {read_data[28]} {read_data[29]} {read_data[30]} {read_data[31]} {write_data[0]} {write_data[1]} {write_data[2]} {write_data[3]} {write_data[4]} {write_data[5]} {write_data[6]} {write_data[7]} {write_data[8]} {write_data[9]} {write_data[10]} {write_data[11]} {write_data[12]} {write_data[13]} {write_data[14]} {write_data[15]} {write_data[16]} {write_data[17]} {write_data[18]} {write_data[19]} {write_data[20]} {write_data[21]} {write_data[22]} {write_data[23]} {write_data[24]} {write_data[25]} {write_data[26]} {write_data[27]} {write_data[28]} {write_data[29]} {write_data[30]} {write_data[31]} }
+#edit_pin -side Right -layer 3 -spread_type center -spacing 3 -pin {{IP2Bus_Data[0]} {IP2Bus_Data[1]} {IP2Bus_Data[2]} {IP2Bus_Data[3]} {IP2Bus_Data[4]} {IP2Bus_Data[5]} {IP2Bus_Data[6]} {IP2Bus_Data[7]} user_int}
 
-edit_pin -side Bottom -layer 3 -spread_type center -spacing 15 -pin {read_request read_response {write_strobe[0]} {write_strobe[1]} {write_strobe[2]} {write_strobe[3]} write_request write_response {rw_address[0]} {rw_address[1]} {rw_address[2]} {rw_address[3]} {rw_address[4]} {rw_address[5]} {rw_address[6]} {rw_address[7]} {rw_address[8]} {rw_address[9]} {rw_address[10]} {rw_address[11]} {rw_address[12]} {rw_address[13]} {rw_address[14]} {rw_address[15]} {rw_address[16]} {rw_address[17]} {rw_address[18]} {rw_address[19]} {rw_address[20]} {rw_address[21]} {rw_address[22]} {rw_address[23]} {rw_address[24]} {rw_address[25]} {rw_address[26]} {rw_address[27]} {rw_address[28]} {rw_address[29]} {rw_address[30]} {rw_address[31]}}
-
-edit_pin -side Right -layer 3 -spread_type center -spacing 15 -pin {irq_external irq_external_response irq_timer irq_timer_response irq_software irq_software_response {irq_fast[0]} {irq_fast[1]} {irq_fast[2]} {irq_fast[3]} {irq_fast[4]} {irq_fast[5]} {irq_fast[6]} {irq_fast[7]} {irq_fast[8]} {irq_fast[9]} {irq_fast[10]} {irq_fast[11]} {irq_fast[12]} {irq_fast[13]} {irq_fast[14]} {irq_fast[15]}  {irq_fast_response[0]} {irq_fast_response[1]} {irq_fast_response[2]} {irq_fast_response[3]} {irq_fast_response[4]} {irq_fast_response[5]} {irq_fast_response[6]} {irq_fast_response[7]} {irq_fast_response[8]} {irq_fast_response[9]} {irq_fast_response[10]} {irq_fast_response[11]} {irq_fast_response[12]} {irq_fast_response[13]} {irq_fast_response[14]} {irq_fast_response[15]} }
-
-
-
-#copt_design
+#ccopt_design 
+# Pre-CTS opt
 opt_design -pre_cts
 
 time_design -pre_cts
 
+# CTS
 eval_legacy {setCTSMode -engine ck}
+#eval_legacy {clockDesign -genSpecOnly Clock.ctstch}
 eval_legacy {clockDesign -specFile Clock.ctstch -outDir clk_report}
 
+# Post-CTS opt
 opt_design -post_cts
 
 report_timing

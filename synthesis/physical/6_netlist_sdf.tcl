@@ -8,9 +8,9 @@
 ##  -Annotate the delay of the final design                 ##
 ##############################################################
 ##Export design netlist
-write_netlist busca_padrao.v
+write_netlist rvsteel_core.v
 ##Annotate design delay
 extract_rc
-write_parasitics -set_load_file busca_padrao.cap
-write_sdf busca_padrao.sdf
+write_parasitics -set_load_file rvsteel_core.cap
+write_sdf rvsteel_core.sdf
 

@@ -2,7 +2,7 @@
 #
 # Genus(TM) Synthesis Solution setup file
 # Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1
-#   on 11/13/2024 23:22:19
+#   on 12/17/2024 07:34:08
 #
 # This file can only be run in Genus Common UI mode.
 #
@@ -22,10 +22,10 @@ if {[::legacy::find -design design:rvsteel_core] ne ""} {
 
 # Source INIT Setup file
 ########################################################
-source innovus/busca_padrao.genus_init.tcl
-read_metric -id current innovus/busca_padrao.metrics.json
+source innovus/rvsteel_core.genus_init.tcl
+read_metric -id current innovus/rvsteel_core.metrics.json
 
-source innovus/busca_padrao.g
+source innovus/rvsteel_core.g
 puts "\n** Restoration Completed **\n"
 
 
@@ -63,8 +63,8 @@ set _cell_area_ [::legacy::get_attribute cell_area design:rvsteel_core]
 if {[regexp {^-?[0-9.]+$} $_cell_area_]} {
   set _cell_area_ [format %.0f $_cell_area_]
 }
-if {$_cell_area_ != "207774"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden cell area: 207774,  current cell area: $_cell_area_"
+if {$_cell_area_ != "185116"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden cell area: 185116,  current cell area: $_cell_area_"
 }
 unset _cell_area_
 # net area
@@ -72,7 +72,7 @@ set _net_area_ [::legacy::get_attribute net_area design:rvsteel_core]
 if {[regexp {^-?[0-9.]+$} $_net_area_]} {
   set _net_area_ [format %.0f $_net_area_]
 }
-if {$_net_area_ != "117929"} {
-   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden net area: 117929,  current net area: $_net_area_"
+if {$_net_area_ != "101310"} {
+   mesg_send [::legacy::find -message /messages/PHYS/PHYS-92] "golden net area: 101310,  current net area: $_net_area_"
 }
 unset _net_area_

@@ -1,6 +1,6 @@
 # ####################################################################
 
-#  Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Wed Nov 13 23:22:17 -0300 2024
+#  Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Tue Dec 17 07:34:07 -0300 2024
 
 # ####################################################################
 
@@ -12,7 +12,7 @@ set_units -time 1000.0ps
 # Set the current design
 current_design rvsteel_core
 
-create_clock -name "clock" -add -period 5.0 -waveform {0.0 2.5} [get_ports clock]
+create_clock -name "clock" -add -period 8.0 -waveform {0.0 4.0} [get_ports clock]
 set_load -pin_load -min 0.0014 [get_ports {rw_address[31]}]
 set_load -pin_load -max 0.32 [get_ports {rw_address[31]}]
 set_load -pin_load -min 0.0014 [get_ports {rw_address[30]}]
@@ -257,6 +257,7 @@ group_path -name C2C -from [list \
   [get_cells {csr_mscratch_reg[7]}]  \
   [get_cells {csr_mscratch_reg[8]}]  \
   [get_cells {csr_mscratch_reg[9]}]  \
+  [get_cells csr_mstatus_mpie_reg]  \
   [get_cells {csr_mtval_reg[0]}]  \
   [get_cells {csr_mtval_reg[10]}]  \
   [get_cells {csr_mtval_reg[11]}]  \
@@ -289,13 +290,70 @@ group_path -name C2C -from [list \
   [get_cells {csr_mtval_reg[7]}]  \
   [get_cells {csr_mtval_reg[8]}]  \
   [get_cells {csr_mtval_reg[9]}]  \
-  [get_cells {current_state_reg[0]}]  \
-  [get_cells {current_state_reg[1]}]  \
-  [get_cells {current_state_reg[2]}]  \
-  [get_cells {current_state_reg[3]}]  \
   [get_cells {prev_instruction_address_reg[0]}]  \
+  [get_cells {prev_instruction_address_reg[10]}]  \
+  [get_cells {prev_instruction_address_reg[11]}]  \
+  [get_cells {prev_instruction_address_reg[12]}]  \
+  [get_cells {prev_instruction_address_reg[13]}]  \
+  [get_cells {prev_instruction_address_reg[14]}]  \
+  [get_cells {prev_instruction_address_reg[15]}]  \
+  [get_cells {prev_instruction_address_reg[16]}]  \
+  [get_cells {prev_instruction_address_reg[17]}]  \
+  [get_cells {prev_instruction_address_reg[18]}]  \
+  [get_cells {prev_instruction_address_reg[19]}]  \
+  [get_cells {prev_instruction_address_reg[1]}]  \
+  [get_cells {prev_instruction_address_reg[20]}]  \
+  [get_cells {prev_instruction_address_reg[21]}]  \
+  [get_cells {prev_instruction_address_reg[22]}]  \
+  [get_cells {prev_instruction_address_reg[23]}]  \
+  [get_cells {prev_instruction_address_reg[24]}]  \
+  [get_cells {prev_instruction_address_reg[25]}]  \
+  [get_cells {prev_instruction_address_reg[26]}]  \
+  [get_cells {prev_instruction_address_reg[27]}]  \
+  [get_cells {prev_instruction_address_reg[28]}]  \
+  [get_cells {prev_instruction_address_reg[29]}]  \
+  [get_cells {prev_instruction_address_reg[2]}]  \
+  [get_cells {prev_instruction_address_reg[30]}]  \
+  [get_cells {prev_instruction_address_reg[31]}]  \
+  [get_cells {prev_instruction_address_reg[3]}]  \
+  [get_cells {prev_instruction_address_reg[4]}]  \
+  [get_cells {prev_instruction_address_reg[5]}]  \
+  [get_cells {prev_instruction_address_reg[6]}]  \
+  [get_cells {prev_instruction_address_reg[7]}]  \
+  [get_cells {prev_instruction_address_reg[8]}]  \
+  [get_cells {prev_instruction_address_reg[9]}]  \
+  [get_cells {prev_instruction_reg[0]}]  \
+  [get_cells {prev_instruction_reg[10]}]  \
   [get_cells {prev_instruction_reg[11]}]  \
-  [get_cells prev_read_request_reg]  \
+  [get_cells {prev_instruction_reg[12]}]  \
+  [get_cells {prev_instruction_reg[13]}]  \
+  [get_cells {prev_instruction_reg[14]}]  \
+  [get_cells {prev_instruction_reg[15]}]  \
+  [get_cells {prev_instruction_reg[16]}]  \
+  [get_cells {prev_instruction_reg[17]}]  \
+  [get_cells {prev_instruction_reg[18]}]  \
+  [get_cells {prev_instruction_reg[19]}]  \
+  [get_cells {prev_instruction_reg[1]}]  \
+  [get_cells {prev_instruction_reg[20]}]  \
+  [get_cells {prev_instruction_reg[21]}]  \
+  [get_cells {prev_instruction_reg[22]}]  \
+  [get_cells {prev_instruction_reg[23]}]  \
+  [get_cells {prev_instruction_reg[24]}]  \
+  [get_cells {prev_instruction_reg[25]}]  \
+  [get_cells {prev_instruction_reg[26]}]  \
+  [get_cells {prev_instruction_reg[27]}]  \
+  [get_cells {prev_instruction_reg[28]}]  \
+  [get_cells {prev_instruction_reg[29]}]  \
+  [get_cells {prev_instruction_reg[2]}]  \
+  [get_cells {prev_instruction_reg[30]}]  \
+  [get_cells {prev_instruction_reg[31]}]  \
+  [get_cells {prev_instruction_reg[3]}]  \
+  [get_cells {prev_instruction_reg[4]}]  \
+  [get_cells {prev_instruction_reg[5]}]  \
+  [get_cells {prev_instruction_reg[6]}]  \
+  [get_cells {prev_instruction_reg[7]}]  \
+  [get_cells {prev_instruction_reg[8]}]  \
+  [get_cells {prev_instruction_reg[9]}]  \
   [get_cells {prev_rw_address_reg[0]}]  \
   [get_cells {prev_rw_address_reg[10]}]  \
   [get_cells {prev_rw_address_reg[11]}]  \
@@ -452,13 +510,18 @@ group_path -name C2C -from [list \
   [get_cells reset_reg_reg]  \
   [get_cells csr_mcause_interrupt_flag_reg]  \
   [get_cells {csr_mcycle_reg[0]}]  \
+  [get_cells {csr_mcycle_reg[10]}]  \
   [get_cells {csr_mcycle_reg[11]}]  \
   [get_cells {csr_mcycle_reg[12]}]  \
   [get_cells {csr_mcycle_reg[13]}]  \
   [get_cells {csr_mcycle_reg[14]}]  \
   [get_cells {csr_mcycle_reg[15]}]  \
+  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[17]}]  \
+  [get_cells {csr_mcycle_reg[18]}]  \
   [get_cells {csr_mcycle_reg[19]}]  \
   [get_cells {csr_mcycle_reg[1]}]  \
+  [get_cells {csr_mcycle_reg[20]}]  \
   [get_cells {csr_mcycle_reg[21]}]  \
   [get_cells {csr_mcycle_reg[22]}]  \
   [get_cells {csr_mcycle_reg[23]}]  \
@@ -469,21 +532,26 @@ group_path -name C2C -from [list \
   [get_cells {csr_mcycle_reg[28]}]  \
   [get_cells {csr_mcycle_reg[29]}]  \
   [get_cells {csr_mcycle_reg[2]}]  \
+  [get_cells {csr_mcycle_reg[30]}]  \
   [get_cells {csr_mcycle_reg[31]}]  \
-  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[35]}]  \
+  [get_cells {csr_mcycle_reg[39]}]  \
   [get_cells {csr_mcycle_reg[3]}]  \
-  [get_cells {csr_mcycle_reg[48]}]  \
+  [get_cells {csr_mcycle_reg[43]}]  \
+  [get_cells {csr_mcycle_reg[47]}]  \
   [get_cells {csr_mcycle_reg[4]}]  \
-  [get_cells {csr_mcycle_reg[50]}]  \
-  [get_cells {csr_mcycle_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[54]}]  \
+  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[55]}]  \
   [get_cells {csr_mcycle_reg[56]}]  \
   [get_cells {csr_mcycle_reg[58]}]  \
+  [get_cells {csr_mcycle_reg[59]}]  \
   [get_cells {csr_mcycle_reg[5]}]  \
   [get_cells {csr_mcycle_reg[60]}]  \
-  [get_cells {csr_mcycle_reg[61]}]  \
+  [get_cells {csr_mcycle_reg[62]}]  \
   [get_cells {csr_mcycle_reg[63]}]  \
+  [get_cells {csr_mcycle_reg[6]}]  \
   [get_cells {csr_mcycle_reg[7]}]  \
+  [get_cells {csr_mcycle_reg[8]}]  \
   [get_cells {csr_mcycle_reg[9]}]  \
   [get_cells {csr_mepc_reg[10]}]  \
   [get_cells {csr_mepc_reg[11]}]  \
@@ -535,11 +603,13 @@ group_path -name C2C -from [list \
   [get_cells csr_mie_msie_reg]  \
   [get_cells csr_mie_mtie_reg]  \
   [get_cells {csr_minstret_reg[0]}]  \
+  [get_cells {csr_minstret_reg[10]}]  \
   [get_cells {csr_minstret_reg[11]}]  \
   [get_cells {csr_minstret_reg[12]}]  \
   [get_cells {csr_minstret_reg[13]}]  \
   [get_cells {csr_minstret_reg[14]}]  \
   [get_cells {csr_minstret_reg[15]}]  \
+  [get_cells {csr_minstret_reg[18]}]  \
   [get_cells {csr_minstret_reg[19]}]  \
   [get_cells {csr_minstret_reg[1]}]  \
   [get_cells {csr_minstret_reg[21]}]  \
@@ -551,19 +621,32 @@ group_path -name C2C -from [list \
   [get_cells {csr_minstret_reg[27]}]  \
   [get_cells {csr_minstret_reg[28]}]  \
   [get_cells {csr_minstret_reg[29]}]  \
+  [get_cells {csr_minstret_reg[2]}]  \
   [get_cells {csr_minstret_reg[30]}]  \
   [get_cells {csr_minstret_reg[31]}]  \
   [get_cells {csr_minstret_reg[33]}]  \
+  [get_cells {csr_minstret_reg[34]}]  \
   [get_cells {csr_minstret_reg[35]}]  \
+  [get_cells {csr_minstret_reg[36]}]  \
+  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_minstret_reg[3]}]  \
+  [get_cells {csr_minstret_reg[43]}]  \
+  [get_cells {csr_minstret_reg[44]}]  \
+  [get_cells {csr_minstret_reg[45]}]  \
+  [get_cells {csr_minstret_reg[46]}]  \
+  [get_cells {csr_minstret_reg[47]}]  \
+  [get_cells {csr_minstret_reg[48]}]  \
   [get_cells {csr_minstret_reg[49]}]  \
   [get_cells {csr_minstret_reg[4]}]  \
-  [get_cells {csr_minstret_reg[50]}]  \
   [get_cells {csr_minstret_reg[51]}]  \
   [get_cells {csr_minstret_reg[52]}]  \
   [get_cells {csr_minstret_reg[54]}]  \
+  [get_cells {csr_minstret_reg[55]}]  \
   [get_cells {csr_minstret_reg[56]}]  \
+  [get_cells {csr_minstret_reg[57]}]  \
   [get_cells {csr_minstret_reg[58]}]  \
+  [get_cells {csr_minstret_reg[59]}]  \
   [get_cells {csr_minstret_reg[5]}]  \
   [get_cells {csr_minstret_reg[60]}]  \
   [get_cells {csr_minstret_reg[61]}]  \
@@ -571,7 +654,8 @@ group_path -name C2C -from [list \
   [get_cells {csr_minstret_reg[63]}]  \
   [get_cells {csr_minstret_reg[6]}]  \
   [get_cells {csr_minstret_reg[7]}]  \
-  [get_cells csr_mstatus_mpie_reg]  \
+  [get_cells {csr_minstret_reg[8]}]  \
+  [get_cells {csr_minstret_reg[9]}]  \
   [get_cells {csr_mtvec_reg[0]}]  \
   [get_cells {csr_mtvec_reg[10]}]  \
   [get_cells {csr_mtvec_reg[11]}]  \
@@ -603,6 +687,10 @@ group_path -name C2C -from [list \
   [get_cells {csr_mtvec_reg[7]}]  \
   [get_cells {csr_mtvec_reg[8]}]  \
   [get_cells {csr_mtvec_reg[9]}]  \
+  [get_cells {current_state_reg[0]}]  \
+  [get_cells {current_state_reg[1]}]  \
+  [get_cells {current_state_reg[2]}]  \
+  [get_cells {current_state_reg[3]}]  \
   [get_cells {integer_file_reg[10][0]}]  \
   [get_cells {integer_file_reg[10][10]}]  \
   [get_cells {integer_file_reg[10][11]}]  \
@@ -1595,41 +1683,11 @@ group_path -name C2C -from [list \
   [get_cells {integer_file_reg[9][7]}]  \
   [get_cells {integer_file_reg[9][8]}]  \
   [get_cells {integer_file_reg[9][9]}]  \
-  [get_cells {prev_instruction_reg[0]}]  \
-  [get_cells {prev_instruction_reg[10]}]  \
-  [get_cells {prev_instruction_reg[12]}]  \
-  [get_cells {prev_instruction_reg[13]}]  \
-  [get_cells {prev_instruction_reg[14]}]  \
-  [get_cells {prev_instruction_reg[15]}]  \
-  [get_cells {prev_instruction_reg[16]}]  \
-  [get_cells {prev_instruction_reg[17]}]  \
-  [get_cells {prev_instruction_reg[18]}]  \
-  [get_cells {prev_instruction_reg[19]}]  \
-  [get_cells {prev_instruction_reg[1]}]  \
-  [get_cells {prev_instruction_reg[20]}]  \
-  [get_cells {prev_instruction_reg[21]}]  \
-  [get_cells {prev_instruction_reg[22]}]  \
-  [get_cells {prev_instruction_reg[23]}]  \
-  [get_cells {prev_instruction_reg[24]}]  \
-  [get_cells {prev_instruction_reg[25]}]  \
-  [get_cells {prev_instruction_reg[26]}]  \
-  [get_cells {prev_instruction_reg[27]}]  \
-  [get_cells {prev_instruction_reg[28]}]  \
-  [get_cells {prev_instruction_reg[29]}]  \
-  [get_cells {prev_instruction_reg[2]}]  \
-  [get_cells {prev_instruction_reg[30]}]  \
-  [get_cells {prev_instruction_reg[31]}]  \
-  [get_cells {prev_instruction_reg[3]}]  \
-  [get_cells {prev_instruction_reg[4]}]  \
-  [get_cells {prev_instruction_reg[5]}]  \
-  [get_cells {prev_instruction_reg[6]}]  \
-  [get_cells {prev_instruction_reg[7]}]  \
-  [get_cells {prev_instruction_reg[8]}]  \
-  [get_cells {prev_instruction_reg[9]}]  \
-  [get_cells {program_counter_reg[1]}]  \
+  [get_cells prev_load_request_reg]  \
+  [get_cells prev_read_request_reg]  \
   [get_cells prev_write_request_reg]  \
   [get_cells {program_counter_reg[0]}]  \
-  [get_cells csr_mstatus_mie_reg]  \
+  [get_cells {program_counter_reg[1]}]  \
   [get_cells {program_counter_reg[2]}]  \
   [get_cells {program_counter_reg[3]}]  \
   [get_cells {program_counter_reg[4]}]  \
@@ -1660,69 +1718,42 @@ group_path -name C2C -from [list \
   [get_cells {program_counter_reg[29]}]  \
   [get_cells {program_counter_reg[30]}]  \
   [get_cells {program_counter_reg[31]}]  \
+  [get_cells {csr_mcause_code_reg[2]}]  \
   [get_cells {csr_mcause_code_reg[4]}]  \
-  [get_cells {csr_mcause_code_reg[3]}]  \
-  [get_cells {csr_mcause_code_reg[1]}]  \
-  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells csr_mstatus_mie_reg]  \
   [get_cells {csr_mcycle_reg[32]}]  \
   [get_cells {csr_minstret_reg[32]}]  \
   [get_cells {csr_mcycle_reg[42]}]  \
   [get_cells {csr_minstret_reg[42]}]  \
-  [get_cells {csr_mcycle_reg[10]}]  \
-  [get_cells {csr_minstret_reg[10]}]  \
-  [get_cells {csr_mcycle_reg[43]}]  \
-  [get_cells {csr_minstret_reg[43]}]  \
   [get_cells {csr_mcycle_reg[44]}]  \
-  [get_cells {csr_minstret_reg[44]}]  \
   [get_cells {csr_mcycle_reg[45]}]  \
-  [get_cells {csr_minstret_reg[45]}]  \
   [get_cells {csr_mcycle_reg[46]}]  \
-  [get_cells {csr_minstret_reg[46]}]  \
-  [get_cells {csr_mcycle_reg[47]}]  \
-  [get_cells {csr_minstret_reg[47]}]  \
-  [get_cells {csr_minstret_reg[48]}]  \
-  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[48]}]  \
   [get_cells {csr_minstret_reg[16]}]  \
-  [get_cells {csr_mcycle_reg[49]}]  \
-  [get_cells {csr_mcycle_reg[17]}]  \
   [get_cells {csr_minstret_reg[17]}]  \
-  [get_cells {csr_mcycle_reg[18]}]  \
-  [get_cells {csr_minstret_reg[18]}]  \
-  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[49]}]  \
+  [get_cells {csr_minstret_reg[50]}]  \
+  [get_cells {csr_mcycle_reg[50]}]  \
   [get_cells {csr_mcycle_reg[33]}]  \
-  [get_cells {csr_mcycle_reg[52]}]  \
-  [get_cells {csr_mcycle_reg[20]}]  \
-  [get_cells {csr_minstret_reg[20]}]  \
   [get_cells {csr_minstret_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[55]}]  \
-  [get_cells {csr_minstret_reg[55]}]  \
+  [get_cells {csr_mcycle_reg[53]}]  \
+  [get_cells {csr_mcycle_reg[54]}]  \
   [get_cells {csr_mcycle_reg[57]}]  \
-  [get_cells {csr_minstret_reg[57]}]  \
-  [get_cells {csr_mcycle_reg[59]}]  \
-  [get_cells {csr_minstret_reg[59]}]  \
+  [get_cells {csr_mcycle_reg[61]}]  \
   [get_cells {csr_mcycle_reg[34]}]  \
-  [get_cells {csr_minstret_reg[34]}]  \
-  [get_cells {csr_minstret_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[30]}]  \
-  [get_cells {csr_mcycle_reg[62]}]  \
-  [get_cells {csr_mcycle_reg[35]}]  \
-  [get_cells {csr_minstret_reg[36]}]  \
-  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[37]}]  \
   [get_cells {csr_mcycle_reg[38]}]  \
   [get_cells {csr_minstret_reg[38]}]  \
-  [get_cells {csr_mcycle_reg[6]}]  \
-  [get_cells {csr_mcycle_reg[39]}]  \
-  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_mcycle_reg[40]}]  \
   [get_cells {csr_minstret_reg[40]}]  \
-  [get_cells {csr_mcycle_reg[8]}]  \
-  [get_cells {csr_minstret_reg[8]}]  \
   [get_cells {csr_mcycle_reg[41]}]  \
   [get_cells {csr_minstret_reg[41]}]  \
-  [get_cells {csr_minstret_reg[9]}]  \
-  [get_cells prev_load_request_reg]  \
-  [get_cells {csr_mcause_code_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[37]}] ] -to [list \
+  [get_cells {csr_mcause_code_reg[3]}]  \
+  [get_cells {csr_mcause_code_reg[1]}]  \
+  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells {csr_minstret_reg[20]}]  \
+  [get_cells {csr_mcycle_reg[52]}] ] -to [list \
   [get_cells RC_CG_HIER_INST37/enl_reg]  \
   [get_cells RC_CG_HIER_INST36/enl_reg]  \
   [get_cells RC_CG_HIER_INST22/enl_reg]  \
@@ -1829,6 +1860,7 @@ group_path -name C2C -from [list \
   [get_cells {csr_mscratch_reg[7]}]  \
   [get_cells {csr_mscratch_reg[8]}]  \
   [get_cells {csr_mscratch_reg[9]}]  \
+  [get_cells csr_mstatus_mpie_reg]  \
   [get_cells {csr_mtval_reg[0]}]  \
   [get_cells {csr_mtval_reg[10]}]  \
   [get_cells {csr_mtval_reg[11]}]  \
@@ -1861,13 +1893,70 @@ group_path -name C2C -from [list \
   [get_cells {csr_mtval_reg[7]}]  \
   [get_cells {csr_mtval_reg[8]}]  \
   [get_cells {csr_mtval_reg[9]}]  \
-  [get_cells {current_state_reg[0]}]  \
-  [get_cells {current_state_reg[1]}]  \
-  [get_cells {current_state_reg[2]}]  \
-  [get_cells {current_state_reg[3]}]  \
   [get_cells {prev_instruction_address_reg[0]}]  \
+  [get_cells {prev_instruction_address_reg[10]}]  \
+  [get_cells {prev_instruction_address_reg[11]}]  \
+  [get_cells {prev_instruction_address_reg[12]}]  \
+  [get_cells {prev_instruction_address_reg[13]}]  \
+  [get_cells {prev_instruction_address_reg[14]}]  \
+  [get_cells {prev_instruction_address_reg[15]}]  \
+  [get_cells {prev_instruction_address_reg[16]}]  \
+  [get_cells {prev_instruction_address_reg[17]}]  \
+  [get_cells {prev_instruction_address_reg[18]}]  \
+  [get_cells {prev_instruction_address_reg[19]}]  \
+  [get_cells {prev_instruction_address_reg[1]}]  \
+  [get_cells {prev_instruction_address_reg[20]}]  \
+  [get_cells {prev_instruction_address_reg[21]}]  \
+  [get_cells {prev_instruction_address_reg[22]}]  \
+  [get_cells {prev_instruction_address_reg[23]}]  \
+  [get_cells {prev_instruction_address_reg[24]}]  \
+  [get_cells {prev_instruction_address_reg[25]}]  \
+  [get_cells {prev_instruction_address_reg[26]}]  \
+  [get_cells {prev_instruction_address_reg[27]}]  \
+  [get_cells {prev_instruction_address_reg[28]}]  \
+  [get_cells {prev_instruction_address_reg[29]}]  \
+  [get_cells {prev_instruction_address_reg[2]}]  \
+  [get_cells {prev_instruction_address_reg[30]}]  \
+  [get_cells {prev_instruction_address_reg[31]}]  \
+  [get_cells {prev_instruction_address_reg[3]}]  \
+  [get_cells {prev_instruction_address_reg[4]}]  \
+  [get_cells {prev_instruction_address_reg[5]}]  \
+  [get_cells {prev_instruction_address_reg[6]}]  \
+  [get_cells {prev_instruction_address_reg[7]}]  \
+  [get_cells {prev_instruction_address_reg[8]}]  \
+  [get_cells {prev_instruction_address_reg[9]}]  \
+  [get_cells {prev_instruction_reg[0]}]  \
+  [get_cells {prev_instruction_reg[10]}]  \
   [get_cells {prev_instruction_reg[11]}]  \
-  [get_cells prev_read_request_reg]  \
+  [get_cells {prev_instruction_reg[12]}]  \
+  [get_cells {prev_instruction_reg[13]}]  \
+  [get_cells {prev_instruction_reg[14]}]  \
+  [get_cells {prev_instruction_reg[15]}]  \
+  [get_cells {prev_instruction_reg[16]}]  \
+  [get_cells {prev_instruction_reg[17]}]  \
+  [get_cells {prev_instruction_reg[18]}]  \
+  [get_cells {prev_instruction_reg[19]}]  \
+  [get_cells {prev_instruction_reg[1]}]  \
+  [get_cells {prev_instruction_reg[20]}]  \
+  [get_cells {prev_instruction_reg[21]}]  \
+  [get_cells {prev_instruction_reg[22]}]  \
+  [get_cells {prev_instruction_reg[23]}]  \
+  [get_cells {prev_instruction_reg[24]}]  \
+  [get_cells {prev_instruction_reg[25]}]  \
+  [get_cells {prev_instruction_reg[26]}]  \
+  [get_cells {prev_instruction_reg[27]}]  \
+  [get_cells {prev_instruction_reg[28]}]  \
+  [get_cells {prev_instruction_reg[29]}]  \
+  [get_cells {prev_instruction_reg[2]}]  \
+  [get_cells {prev_instruction_reg[30]}]  \
+  [get_cells {prev_instruction_reg[31]}]  \
+  [get_cells {prev_instruction_reg[3]}]  \
+  [get_cells {prev_instruction_reg[4]}]  \
+  [get_cells {prev_instruction_reg[5]}]  \
+  [get_cells {prev_instruction_reg[6]}]  \
+  [get_cells {prev_instruction_reg[7]}]  \
+  [get_cells {prev_instruction_reg[8]}]  \
+  [get_cells {prev_instruction_reg[9]}]  \
   [get_cells {prev_rw_address_reg[0]}]  \
   [get_cells {prev_rw_address_reg[10]}]  \
   [get_cells {prev_rw_address_reg[11]}]  \
@@ -2024,13 +2113,18 @@ group_path -name C2C -from [list \
   [get_cells reset_reg_reg]  \
   [get_cells csr_mcause_interrupt_flag_reg]  \
   [get_cells {csr_mcycle_reg[0]}]  \
+  [get_cells {csr_mcycle_reg[10]}]  \
   [get_cells {csr_mcycle_reg[11]}]  \
   [get_cells {csr_mcycle_reg[12]}]  \
   [get_cells {csr_mcycle_reg[13]}]  \
   [get_cells {csr_mcycle_reg[14]}]  \
   [get_cells {csr_mcycle_reg[15]}]  \
+  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[17]}]  \
+  [get_cells {csr_mcycle_reg[18]}]  \
   [get_cells {csr_mcycle_reg[19]}]  \
   [get_cells {csr_mcycle_reg[1]}]  \
+  [get_cells {csr_mcycle_reg[20]}]  \
   [get_cells {csr_mcycle_reg[21]}]  \
   [get_cells {csr_mcycle_reg[22]}]  \
   [get_cells {csr_mcycle_reg[23]}]  \
@@ -2041,21 +2135,26 @@ group_path -name C2C -from [list \
   [get_cells {csr_mcycle_reg[28]}]  \
   [get_cells {csr_mcycle_reg[29]}]  \
   [get_cells {csr_mcycle_reg[2]}]  \
+  [get_cells {csr_mcycle_reg[30]}]  \
   [get_cells {csr_mcycle_reg[31]}]  \
-  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[35]}]  \
+  [get_cells {csr_mcycle_reg[39]}]  \
   [get_cells {csr_mcycle_reg[3]}]  \
-  [get_cells {csr_mcycle_reg[48]}]  \
+  [get_cells {csr_mcycle_reg[43]}]  \
+  [get_cells {csr_mcycle_reg[47]}]  \
   [get_cells {csr_mcycle_reg[4]}]  \
-  [get_cells {csr_mcycle_reg[50]}]  \
-  [get_cells {csr_mcycle_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[54]}]  \
+  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[55]}]  \
   [get_cells {csr_mcycle_reg[56]}]  \
   [get_cells {csr_mcycle_reg[58]}]  \
+  [get_cells {csr_mcycle_reg[59]}]  \
   [get_cells {csr_mcycle_reg[5]}]  \
   [get_cells {csr_mcycle_reg[60]}]  \
-  [get_cells {csr_mcycle_reg[61]}]  \
+  [get_cells {csr_mcycle_reg[62]}]  \
   [get_cells {csr_mcycle_reg[63]}]  \
+  [get_cells {csr_mcycle_reg[6]}]  \
   [get_cells {csr_mcycle_reg[7]}]  \
+  [get_cells {csr_mcycle_reg[8]}]  \
   [get_cells {csr_mcycle_reg[9]}]  \
   [get_cells {csr_mepc_reg[10]}]  \
   [get_cells {csr_mepc_reg[11]}]  \
@@ -2107,11 +2206,13 @@ group_path -name C2C -from [list \
   [get_cells csr_mie_msie_reg]  \
   [get_cells csr_mie_mtie_reg]  \
   [get_cells {csr_minstret_reg[0]}]  \
+  [get_cells {csr_minstret_reg[10]}]  \
   [get_cells {csr_minstret_reg[11]}]  \
   [get_cells {csr_minstret_reg[12]}]  \
   [get_cells {csr_minstret_reg[13]}]  \
   [get_cells {csr_minstret_reg[14]}]  \
   [get_cells {csr_minstret_reg[15]}]  \
+  [get_cells {csr_minstret_reg[18]}]  \
   [get_cells {csr_minstret_reg[19]}]  \
   [get_cells {csr_minstret_reg[1]}]  \
   [get_cells {csr_minstret_reg[21]}]  \
@@ -2123,19 +2224,32 @@ group_path -name C2C -from [list \
   [get_cells {csr_minstret_reg[27]}]  \
   [get_cells {csr_minstret_reg[28]}]  \
   [get_cells {csr_minstret_reg[29]}]  \
+  [get_cells {csr_minstret_reg[2]}]  \
   [get_cells {csr_minstret_reg[30]}]  \
   [get_cells {csr_minstret_reg[31]}]  \
   [get_cells {csr_minstret_reg[33]}]  \
+  [get_cells {csr_minstret_reg[34]}]  \
   [get_cells {csr_minstret_reg[35]}]  \
+  [get_cells {csr_minstret_reg[36]}]  \
+  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_minstret_reg[3]}]  \
+  [get_cells {csr_minstret_reg[43]}]  \
+  [get_cells {csr_minstret_reg[44]}]  \
+  [get_cells {csr_minstret_reg[45]}]  \
+  [get_cells {csr_minstret_reg[46]}]  \
+  [get_cells {csr_minstret_reg[47]}]  \
+  [get_cells {csr_minstret_reg[48]}]  \
   [get_cells {csr_minstret_reg[49]}]  \
   [get_cells {csr_minstret_reg[4]}]  \
-  [get_cells {csr_minstret_reg[50]}]  \
   [get_cells {csr_minstret_reg[51]}]  \
   [get_cells {csr_minstret_reg[52]}]  \
   [get_cells {csr_minstret_reg[54]}]  \
+  [get_cells {csr_minstret_reg[55]}]  \
   [get_cells {csr_minstret_reg[56]}]  \
+  [get_cells {csr_minstret_reg[57]}]  \
   [get_cells {csr_minstret_reg[58]}]  \
+  [get_cells {csr_minstret_reg[59]}]  \
   [get_cells {csr_minstret_reg[5]}]  \
   [get_cells {csr_minstret_reg[60]}]  \
   [get_cells {csr_minstret_reg[61]}]  \
@@ -2143,7 +2257,8 @@ group_path -name C2C -from [list \
   [get_cells {csr_minstret_reg[63]}]  \
   [get_cells {csr_minstret_reg[6]}]  \
   [get_cells {csr_minstret_reg[7]}]  \
-  [get_cells csr_mstatus_mpie_reg]  \
+  [get_cells {csr_minstret_reg[8]}]  \
+  [get_cells {csr_minstret_reg[9]}]  \
   [get_cells {csr_mtvec_reg[0]}]  \
   [get_cells {csr_mtvec_reg[10]}]  \
   [get_cells {csr_mtvec_reg[11]}]  \
@@ -2175,6 +2290,10 @@ group_path -name C2C -from [list \
   [get_cells {csr_mtvec_reg[7]}]  \
   [get_cells {csr_mtvec_reg[8]}]  \
   [get_cells {csr_mtvec_reg[9]}]  \
+  [get_cells {current_state_reg[0]}]  \
+  [get_cells {current_state_reg[1]}]  \
+  [get_cells {current_state_reg[2]}]  \
+  [get_cells {current_state_reg[3]}]  \
   [get_cells {integer_file_reg[10][0]}]  \
   [get_cells {integer_file_reg[10][10]}]  \
   [get_cells {integer_file_reg[10][11]}]  \
@@ -3167,41 +3286,11 @@ group_path -name C2C -from [list \
   [get_cells {integer_file_reg[9][7]}]  \
   [get_cells {integer_file_reg[9][8]}]  \
   [get_cells {integer_file_reg[9][9]}]  \
-  [get_cells {prev_instruction_reg[0]}]  \
-  [get_cells {prev_instruction_reg[10]}]  \
-  [get_cells {prev_instruction_reg[12]}]  \
-  [get_cells {prev_instruction_reg[13]}]  \
-  [get_cells {prev_instruction_reg[14]}]  \
-  [get_cells {prev_instruction_reg[15]}]  \
-  [get_cells {prev_instruction_reg[16]}]  \
-  [get_cells {prev_instruction_reg[17]}]  \
-  [get_cells {prev_instruction_reg[18]}]  \
-  [get_cells {prev_instruction_reg[19]}]  \
-  [get_cells {prev_instruction_reg[1]}]  \
-  [get_cells {prev_instruction_reg[20]}]  \
-  [get_cells {prev_instruction_reg[21]}]  \
-  [get_cells {prev_instruction_reg[22]}]  \
-  [get_cells {prev_instruction_reg[23]}]  \
-  [get_cells {prev_instruction_reg[24]}]  \
-  [get_cells {prev_instruction_reg[25]}]  \
-  [get_cells {prev_instruction_reg[26]}]  \
-  [get_cells {prev_instruction_reg[27]}]  \
-  [get_cells {prev_instruction_reg[28]}]  \
-  [get_cells {prev_instruction_reg[29]}]  \
-  [get_cells {prev_instruction_reg[2]}]  \
-  [get_cells {prev_instruction_reg[30]}]  \
-  [get_cells {prev_instruction_reg[31]}]  \
-  [get_cells {prev_instruction_reg[3]}]  \
-  [get_cells {prev_instruction_reg[4]}]  \
-  [get_cells {prev_instruction_reg[5]}]  \
-  [get_cells {prev_instruction_reg[6]}]  \
-  [get_cells {prev_instruction_reg[7]}]  \
-  [get_cells {prev_instruction_reg[8]}]  \
-  [get_cells {prev_instruction_reg[9]}]  \
-  [get_cells {program_counter_reg[1]}]  \
+  [get_cells prev_load_request_reg]  \
+  [get_cells prev_read_request_reg]  \
   [get_cells prev_write_request_reg]  \
   [get_cells {program_counter_reg[0]}]  \
-  [get_cells csr_mstatus_mie_reg]  \
+  [get_cells {program_counter_reg[1]}]  \
   [get_cells {program_counter_reg[2]}]  \
   [get_cells {program_counter_reg[3]}]  \
   [get_cells {program_counter_reg[4]}]  \
@@ -3232,69 +3321,42 @@ group_path -name C2C -from [list \
   [get_cells {program_counter_reg[29]}]  \
   [get_cells {program_counter_reg[30]}]  \
   [get_cells {program_counter_reg[31]}]  \
+  [get_cells {csr_mcause_code_reg[2]}]  \
   [get_cells {csr_mcause_code_reg[4]}]  \
-  [get_cells {csr_mcause_code_reg[3]}]  \
-  [get_cells {csr_mcause_code_reg[1]}]  \
-  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells csr_mstatus_mie_reg]  \
   [get_cells {csr_mcycle_reg[32]}]  \
   [get_cells {csr_minstret_reg[32]}]  \
   [get_cells {csr_mcycle_reg[42]}]  \
   [get_cells {csr_minstret_reg[42]}]  \
-  [get_cells {csr_mcycle_reg[10]}]  \
-  [get_cells {csr_minstret_reg[10]}]  \
-  [get_cells {csr_mcycle_reg[43]}]  \
-  [get_cells {csr_minstret_reg[43]}]  \
   [get_cells {csr_mcycle_reg[44]}]  \
-  [get_cells {csr_minstret_reg[44]}]  \
   [get_cells {csr_mcycle_reg[45]}]  \
-  [get_cells {csr_minstret_reg[45]}]  \
   [get_cells {csr_mcycle_reg[46]}]  \
-  [get_cells {csr_minstret_reg[46]}]  \
-  [get_cells {csr_mcycle_reg[47]}]  \
-  [get_cells {csr_minstret_reg[47]}]  \
-  [get_cells {csr_minstret_reg[48]}]  \
-  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[48]}]  \
   [get_cells {csr_minstret_reg[16]}]  \
-  [get_cells {csr_mcycle_reg[49]}]  \
-  [get_cells {csr_mcycle_reg[17]}]  \
   [get_cells {csr_minstret_reg[17]}]  \
-  [get_cells {csr_mcycle_reg[18]}]  \
-  [get_cells {csr_minstret_reg[18]}]  \
-  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[49]}]  \
+  [get_cells {csr_minstret_reg[50]}]  \
+  [get_cells {csr_mcycle_reg[50]}]  \
   [get_cells {csr_mcycle_reg[33]}]  \
-  [get_cells {csr_mcycle_reg[52]}]  \
-  [get_cells {csr_mcycle_reg[20]}]  \
-  [get_cells {csr_minstret_reg[20]}]  \
   [get_cells {csr_minstret_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[55]}]  \
-  [get_cells {csr_minstret_reg[55]}]  \
+  [get_cells {csr_mcycle_reg[53]}]  \
+  [get_cells {csr_mcycle_reg[54]}]  \
   [get_cells {csr_mcycle_reg[57]}]  \
-  [get_cells {csr_minstret_reg[57]}]  \
-  [get_cells {csr_mcycle_reg[59]}]  \
-  [get_cells {csr_minstret_reg[59]}]  \
+  [get_cells {csr_mcycle_reg[61]}]  \
   [get_cells {csr_mcycle_reg[34]}]  \
-  [get_cells {csr_minstret_reg[34]}]  \
-  [get_cells {csr_minstret_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[30]}]  \
-  [get_cells {csr_mcycle_reg[62]}]  \
-  [get_cells {csr_mcycle_reg[35]}]  \
-  [get_cells {csr_minstret_reg[36]}]  \
-  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[37]}]  \
   [get_cells {csr_mcycle_reg[38]}]  \
   [get_cells {csr_minstret_reg[38]}]  \
-  [get_cells {csr_mcycle_reg[6]}]  \
-  [get_cells {csr_mcycle_reg[39]}]  \
-  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_mcycle_reg[40]}]  \
   [get_cells {csr_minstret_reg[40]}]  \
-  [get_cells {csr_mcycle_reg[8]}]  \
-  [get_cells {csr_minstret_reg[8]}]  \
   [get_cells {csr_mcycle_reg[41]}]  \
   [get_cells {csr_minstret_reg[41]}]  \
-  [get_cells {csr_minstret_reg[9]}]  \
-  [get_cells prev_load_request_reg]  \
-  [get_cells {csr_mcause_code_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[37]}] ]
+  [get_cells {csr_mcause_code_reg[3]}]  \
+  [get_cells {csr_mcause_code_reg[1]}]  \
+  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells {csr_minstret_reg[20]}]  \
+  [get_cells {csr_mcycle_reg[52]}] ]
 group_path -name C2O -from [list \
   [get_cells {csr_mcause_reg[0]}]  \
   [get_cells {csr_mcause_reg[10]}]  \
@@ -3360,6 +3422,7 @@ group_path -name C2O -from [list \
   [get_cells {csr_mscratch_reg[7]}]  \
   [get_cells {csr_mscratch_reg[8]}]  \
   [get_cells {csr_mscratch_reg[9]}]  \
+  [get_cells csr_mstatus_mpie_reg]  \
   [get_cells {csr_mtval_reg[0]}]  \
   [get_cells {csr_mtval_reg[10]}]  \
   [get_cells {csr_mtval_reg[11]}]  \
@@ -3392,13 +3455,70 @@ group_path -name C2O -from [list \
   [get_cells {csr_mtval_reg[7]}]  \
   [get_cells {csr_mtval_reg[8]}]  \
   [get_cells {csr_mtval_reg[9]}]  \
-  [get_cells {current_state_reg[0]}]  \
-  [get_cells {current_state_reg[1]}]  \
-  [get_cells {current_state_reg[2]}]  \
-  [get_cells {current_state_reg[3]}]  \
   [get_cells {prev_instruction_address_reg[0]}]  \
+  [get_cells {prev_instruction_address_reg[10]}]  \
+  [get_cells {prev_instruction_address_reg[11]}]  \
+  [get_cells {prev_instruction_address_reg[12]}]  \
+  [get_cells {prev_instruction_address_reg[13]}]  \
+  [get_cells {prev_instruction_address_reg[14]}]  \
+  [get_cells {prev_instruction_address_reg[15]}]  \
+  [get_cells {prev_instruction_address_reg[16]}]  \
+  [get_cells {prev_instruction_address_reg[17]}]  \
+  [get_cells {prev_instruction_address_reg[18]}]  \
+  [get_cells {prev_instruction_address_reg[19]}]  \
+  [get_cells {prev_instruction_address_reg[1]}]  \
+  [get_cells {prev_instruction_address_reg[20]}]  \
+  [get_cells {prev_instruction_address_reg[21]}]  \
+  [get_cells {prev_instruction_address_reg[22]}]  \
+  [get_cells {prev_instruction_address_reg[23]}]  \
+  [get_cells {prev_instruction_address_reg[24]}]  \
+  [get_cells {prev_instruction_address_reg[25]}]  \
+  [get_cells {prev_instruction_address_reg[26]}]  \
+  [get_cells {prev_instruction_address_reg[27]}]  \
+  [get_cells {prev_instruction_address_reg[28]}]  \
+  [get_cells {prev_instruction_address_reg[29]}]  \
+  [get_cells {prev_instruction_address_reg[2]}]  \
+  [get_cells {prev_instruction_address_reg[30]}]  \
+  [get_cells {prev_instruction_address_reg[31]}]  \
+  [get_cells {prev_instruction_address_reg[3]}]  \
+  [get_cells {prev_instruction_address_reg[4]}]  \
+  [get_cells {prev_instruction_address_reg[5]}]  \
+  [get_cells {prev_instruction_address_reg[6]}]  \
+  [get_cells {prev_instruction_address_reg[7]}]  \
+  [get_cells {prev_instruction_address_reg[8]}]  \
+  [get_cells {prev_instruction_address_reg[9]}]  \
+  [get_cells {prev_instruction_reg[0]}]  \
+  [get_cells {prev_instruction_reg[10]}]  \
   [get_cells {prev_instruction_reg[11]}]  \
-  [get_cells prev_read_request_reg]  \
+  [get_cells {prev_instruction_reg[12]}]  \
+  [get_cells {prev_instruction_reg[13]}]  \
+  [get_cells {prev_instruction_reg[14]}]  \
+  [get_cells {prev_instruction_reg[15]}]  \
+  [get_cells {prev_instruction_reg[16]}]  \
+  [get_cells {prev_instruction_reg[17]}]  \
+  [get_cells {prev_instruction_reg[18]}]  \
+  [get_cells {prev_instruction_reg[19]}]  \
+  [get_cells {prev_instruction_reg[1]}]  \
+  [get_cells {prev_instruction_reg[20]}]  \
+  [get_cells {prev_instruction_reg[21]}]  \
+  [get_cells {prev_instruction_reg[22]}]  \
+  [get_cells {prev_instruction_reg[23]}]  \
+  [get_cells {prev_instruction_reg[24]}]  \
+  [get_cells {prev_instruction_reg[25]}]  \
+  [get_cells {prev_instruction_reg[26]}]  \
+  [get_cells {prev_instruction_reg[27]}]  \
+  [get_cells {prev_instruction_reg[28]}]  \
+  [get_cells {prev_instruction_reg[29]}]  \
+  [get_cells {prev_instruction_reg[2]}]  \
+  [get_cells {prev_instruction_reg[30]}]  \
+  [get_cells {prev_instruction_reg[31]}]  \
+  [get_cells {prev_instruction_reg[3]}]  \
+  [get_cells {prev_instruction_reg[4]}]  \
+  [get_cells {prev_instruction_reg[5]}]  \
+  [get_cells {prev_instruction_reg[6]}]  \
+  [get_cells {prev_instruction_reg[7]}]  \
+  [get_cells {prev_instruction_reg[8]}]  \
+  [get_cells {prev_instruction_reg[9]}]  \
   [get_cells {prev_rw_address_reg[0]}]  \
   [get_cells {prev_rw_address_reg[10]}]  \
   [get_cells {prev_rw_address_reg[11]}]  \
@@ -3555,13 +3675,18 @@ group_path -name C2O -from [list \
   [get_cells reset_reg_reg]  \
   [get_cells csr_mcause_interrupt_flag_reg]  \
   [get_cells {csr_mcycle_reg[0]}]  \
+  [get_cells {csr_mcycle_reg[10]}]  \
   [get_cells {csr_mcycle_reg[11]}]  \
   [get_cells {csr_mcycle_reg[12]}]  \
   [get_cells {csr_mcycle_reg[13]}]  \
   [get_cells {csr_mcycle_reg[14]}]  \
   [get_cells {csr_mcycle_reg[15]}]  \
+  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[17]}]  \
+  [get_cells {csr_mcycle_reg[18]}]  \
   [get_cells {csr_mcycle_reg[19]}]  \
   [get_cells {csr_mcycle_reg[1]}]  \
+  [get_cells {csr_mcycle_reg[20]}]  \
   [get_cells {csr_mcycle_reg[21]}]  \
   [get_cells {csr_mcycle_reg[22]}]  \
   [get_cells {csr_mcycle_reg[23]}]  \
@@ -3572,21 +3697,26 @@ group_path -name C2O -from [list \
   [get_cells {csr_mcycle_reg[28]}]  \
   [get_cells {csr_mcycle_reg[29]}]  \
   [get_cells {csr_mcycle_reg[2]}]  \
+  [get_cells {csr_mcycle_reg[30]}]  \
   [get_cells {csr_mcycle_reg[31]}]  \
-  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[35]}]  \
+  [get_cells {csr_mcycle_reg[39]}]  \
   [get_cells {csr_mcycle_reg[3]}]  \
-  [get_cells {csr_mcycle_reg[48]}]  \
+  [get_cells {csr_mcycle_reg[43]}]  \
+  [get_cells {csr_mcycle_reg[47]}]  \
   [get_cells {csr_mcycle_reg[4]}]  \
-  [get_cells {csr_mcycle_reg[50]}]  \
-  [get_cells {csr_mcycle_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[54]}]  \
+  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[55]}]  \
   [get_cells {csr_mcycle_reg[56]}]  \
   [get_cells {csr_mcycle_reg[58]}]  \
+  [get_cells {csr_mcycle_reg[59]}]  \
   [get_cells {csr_mcycle_reg[5]}]  \
   [get_cells {csr_mcycle_reg[60]}]  \
-  [get_cells {csr_mcycle_reg[61]}]  \
+  [get_cells {csr_mcycle_reg[62]}]  \
   [get_cells {csr_mcycle_reg[63]}]  \
+  [get_cells {csr_mcycle_reg[6]}]  \
   [get_cells {csr_mcycle_reg[7]}]  \
+  [get_cells {csr_mcycle_reg[8]}]  \
   [get_cells {csr_mcycle_reg[9]}]  \
   [get_cells {csr_mepc_reg[10]}]  \
   [get_cells {csr_mepc_reg[11]}]  \
@@ -3638,11 +3768,13 @@ group_path -name C2O -from [list \
   [get_cells csr_mie_msie_reg]  \
   [get_cells csr_mie_mtie_reg]  \
   [get_cells {csr_minstret_reg[0]}]  \
+  [get_cells {csr_minstret_reg[10]}]  \
   [get_cells {csr_minstret_reg[11]}]  \
   [get_cells {csr_minstret_reg[12]}]  \
   [get_cells {csr_minstret_reg[13]}]  \
   [get_cells {csr_minstret_reg[14]}]  \
   [get_cells {csr_minstret_reg[15]}]  \
+  [get_cells {csr_minstret_reg[18]}]  \
   [get_cells {csr_minstret_reg[19]}]  \
   [get_cells {csr_minstret_reg[1]}]  \
   [get_cells {csr_minstret_reg[21]}]  \
@@ -3654,19 +3786,32 @@ group_path -name C2O -from [list \
   [get_cells {csr_minstret_reg[27]}]  \
   [get_cells {csr_minstret_reg[28]}]  \
   [get_cells {csr_minstret_reg[29]}]  \
+  [get_cells {csr_minstret_reg[2]}]  \
   [get_cells {csr_minstret_reg[30]}]  \
   [get_cells {csr_minstret_reg[31]}]  \
   [get_cells {csr_minstret_reg[33]}]  \
+  [get_cells {csr_minstret_reg[34]}]  \
   [get_cells {csr_minstret_reg[35]}]  \
+  [get_cells {csr_minstret_reg[36]}]  \
+  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_minstret_reg[3]}]  \
+  [get_cells {csr_minstret_reg[43]}]  \
+  [get_cells {csr_minstret_reg[44]}]  \
+  [get_cells {csr_minstret_reg[45]}]  \
+  [get_cells {csr_minstret_reg[46]}]  \
+  [get_cells {csr_minstret_reg[47]}]  \
+  [get_cells {csr_minstret_reg[48]}]  \
   [get_cells {csr_minstret_reg[49]}]  \
   [get_cells {csr_minstret_reg[4]}]  \
-  [get_cells {csr_minstret_reg[50]}]  \
   [get_cells {csr_minstret_reg[51]}]  \
   [get_cells {csr_minstret_reg[52]}]  \
   [get_cells {csr_minstret_reg[54]}]  \
+  [get_cells {csr_minstret_reg[55]}]  \
   [get_cells {csr_minstret_reg[56]}]  \
+  [get_cells {csr_minstret_reg[57]}]  \
   [get_cells {csr_minstret_reg[58]}]  \
+  [get_cells {csr_minstret_reg[59]}]  \
   [get_cells {csr_minstret_reg[5]}]  \
   [get_cells {csr_minstret_reg[60]}]  \
   [get_cells {csr_minstret_reg[61]}]  \
@@ -3674,7 +3819,8 @@ group_path -name C2O -from [list \
   [get_cells {csr_minstret_reg[63]}]  \
   [get_cells {csr_minstret_reg[6]}]  \
   [get_cells {csr_minstret_reg[7]}]  \
-  [get_cells csr_mstatus_mpie_reg]  \
+  [get_cells {csr_minstret_reg[8]}]  \
+  [get_cells {csr_minstret_reg[9]}]  \
   [get_cells {csr_mtvec_reg[0]}]  \
   [get_cells {csr_mtvec_reg[10]}]  \
   [get_cells {csr_mtvec_reg[11]}]  \
@@ -3706,6 +3852,10 @@ group_path -name C2O -from [list \
   [get_cells {csr_mtvec_reg[7]}]  \
   [get_cells {csr_mtvec_reg[8]}]  \
   [get_cells {csr_mtvec_reg[9]}]  \
+  [get_cells {current_state_reg[0]}]  \
+  [get_cells {current_state_reg[1]}]  \
+  [get_cells {current_state_reg[2]}]  \
+  [get_cells {current_state_reg[3]}]  \
   [get_cells {integer_file_reg[10][0]}]  \
   [get_cells {integer_file_reg[10][10]}]  \
   [get_cells {integer_file_reg[10][11]}]  \
@@ -4698,41 +4848,11 @@ group_path -name C2O -from [list \
   [get_cells {integer_file_reg[9][7]}]  \
   [get_cells {integer_file_reg[9][8]}]  \
   [get_cells {integer_file_reg[9][9]}]  \
-  [get_cells {prev_instruction_reg[0]}]  \
-  [get_cells {prev_instruction_reg[10]}]  \
-  [get_cells {prev_instruction_reg[12]}]  \
-  [get_cells {prev_instruction_reg[13]}]  \
-  [get_cells {prev_instruction_reg[14]}]  \
-  [get_cells {prev_instruction_reg[15]}]  \
-  [get_cells {prev_instruction_reg[16]}]  \
-  [get_cells {prev_instruction_reg[17]}]  \
-  [get_cells {prev_instruction_reg[18]}]  \
-  [get_cells {prev_instruction_reg[19]}]  \
-  [get_cells {prev_instruction_reg[1]}]  \
-  [get_cells {prev_instruction_reg[20]}]  \
-  [get_cells {prev_instruction_reg[21]}]  \
-  [get_cells {prev_instruction_reg[22]}]  \
-  [get_cells {prev_instruction_reg[23]}]  \
-  [get_cells {prev_instruction_reg[24]}]  \
-  [get_cells {prev_instruction_reg[25]}]  \
-  [get_cells {prev_instruction_reg[26]}]  \
-  [get_cells {prev_instruction_reg[27]}]  \
-  [get_cells {prev_instruction_reg[28]}]  \
-  [get_cells {prev_instruction_reg[29]}]  \
-  [get_cells {prev_instruction_reg[2]}]  \
-  [get_cells {prev_instruction_reg[30]}]  \
-  [get_cells {prev_instruction_reg[31]}]  \
-  [get_cells {prev_instruction_reg[3]}]  \
-  [get_cells {prev_instruction_reg[4]}]  \
-  [get_cells {prev_instruction_reg[5]}]  \
-  [get_cells {prev_instruction_reg[6]}]  \
-  [get_cells {prev_instruction_reg[7]}]  \
-  [get_cells {prev_instruction_reg[8]}]  \
-  [get_cells {prev_instruction_reg[9]}]  \
-  [get_cells {program_counter_reg[1]}]  \
+  [get_cells prev_load_request_reg]  \
+  [get_cells prev_read_request_reg]  \
   [get_cells prev_write_request_reg]  \
   [get_cells {program_counter_reg[0]}]  \
-  [get_cells csr_mstatus_mie_reg]  \
+  [get_cells {program_counter_reg[1]}]  \
   [get_cells {program_counter_reg[2]}]  \
   [get_cells {program_counter_reg[3]}]  \
   [get_cells {program_counter_reg[4]}]  \
@@ -4763,69 +4883,42 @@ group_path -name C2O -from [list \
   [get_cells {program_counter_reg[29]}]  \
   [get_cells {program_counter_reg[30]}]  \
   [get_cells {program_counter_reg[31]}]  \
+  [get_cells {csr_mcause_code_reg[2]}]  \
   [get_cells {csr_mcause_code_reg[4]}]  \
-  [get_cells {csr_mcause_code_reg[3]}]  \
-  [get_cells {csr_mcause_code_reg[1]}]  \
-  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells csr_mstatus_mie_reg]  \
   [get_cells {csr_mcycle_reg[32]}]  \
   [get_cells {csr_minstret_reg[32]}]  \
   [get_cells {csr_mcycle_reg[42]}]  \
   [get_cells {csr_minstret_reg[42]}]  \
-  [get_cells {csr_mcycle_reg[10]}]  \
-  [get_cells {csr_minstret_reg[10]}]  \
-  [get_cells {csr_mcycle_reg[43]}]  \
-  [get_cells {csr_minstret_reg[43]}]  \
   [get_cells {csr_mcycle_reg[44]}]  \
-  [get_cells {csr_minstret_reg[44]}]  \
   [get_cells {csr_mcycle_reg[45]}]  \
-  [get_cells {csr_minstret_reg[45]}]  \
   [get_cells {csr_mcycle_reg[46]}]  \
-  [get_cells {csr_minstret_reg[46]}]  \
-  [get_cells {csr_mcycle_reg[47]}]  \
-  [get_cells {csr_minstret_reg[47]}]  \
-  [get_cells {csr_minstret_reg[48]}]  \
-  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[48]}]  \
   [get_cells {csr_minstret_reg[16]}]  \
-  [get_cells {csr_mcycle_reg[49]}]  \
-  [get_cells {csr_mcycle_reg[17]}]  \
   [get_cells {csr_minstret_reg[17]}]  \
-  [get_cells {csr_mcycle_reg[18]}]  \
-  [get_cells {csr_minstret_reg[18]}]  \
-  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[49]}]  \
+  [get_cells {csr_minstret_reg[50]}]  \
+  [get_cells {csr_mcycle_reg[50]}]  \
   [get_cells {csr_mcycle_reg[33]}]  \
-  [get_cells {csr_mcycle_reg[52]}]  \
-  [get_cells {csr_mcycle_reg[20]}]  \
-  [get_cells {csr_minstret_reg[20]}]  \
   [get_cells {csr_minstret_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[55]}]  \
-  [get_cells {csr_minstret_reg[55]}]  \
+  [get_cells {csr_mcycle_reg[53]}]  \
+  [get_cells {csr_mcycle_reg[54]}]  \
   [get_cells {csr_mcycle_reg[57]}]  \
-  [get_cells {csr_minstret_reg[57]}]  \
-  [get_cells {csr_mcycle_reg[59]}]  \
-  [get_cells {csr_minstret_reg[59]}]  \
+  [get_cells {csr_mcycle_reg[61]}]  \
   [get_cells {csr_mcycle_reg[34]}]  \
-  [get_cells {csr_minstret_reg[34]}]  \
-  [get_cells {csr_minstret_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[30]}]  \
-  [get_cells {csr_mcycle_reg[62]}]  \
-  [get_cells {csr_mcycle_reg[35]}]  \
-  [get_cells {csr_minstret_reg[36]}]  \
-  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[37]}]  \
   [get_cells {csr_mcycle_reg[38]}]  \
   [get_cells {csr_minstret_reg[38]}]  \
-  [get_cells {csr_mcycle_reg[6]}]  \
-  [get_cells {csr_mcycle_reg[39]}]  \
-  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_mcycle_reg[40]}]  \
   [get_cells {csr_minstret_reg[40]}]  \
-  [get_cells {csr_mcycle_reg[8]}]  \
-  [get_cells {csr_minstret_reg[8]}]  \
   [get_cells {csr_mcycle_reg[41]}]  \
   [get_cells {csr_minstret_reg[41]}]  \
-  [get_cells {csr_minstret_reg[9]}]  \
-  [get_cells prev_load_request_reg]  \
-  [get_cells {csr_mcause_code_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[37]}] ] -to [list \
+  [get_cells {csr_mcause_code_reg[3]}]  \
+  [get_cells {csr_mcause_code_reg[1]}]  \
+  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells {csr_minstret_reg[20]}]  \
+  [get_cells {csr_mcycle_reg[52]}] ] -to [list \
   [get_ports {rw_address[31]}]  \
   [get_ports {rw_address[30]}]  \
   [get_ports {rw_address[29]}]  \
@@ -5142,6 +5235,7 @@ group_path -name I2C -from [list \
   [get_cells {csr_mscratch_reg[7]}]  \
   [get_cells {csr_mscratch_reg[8]}]  \
   [get_cells {csr_mscratch_reg[9]}]  \
+  [get_cells csr_mstatus_mpie_reg]  \
   [get_cells {csr_mtval_reg[0]}]  \
   [get_cells {csr_mtval_reg[10]}]  \
   [get_cells {csr_mtval_reg[11]}]  \
@@ -5174,13 +5268,70 @@ group_path -name I2C -from [list \
   [get_cells {csr_mtval_reg[7]}]  \
   [get_cells {csr_mtval_reg[8]}]  \
   [get_cells {csr_mtval_reg[9]}]  \
-  [get_cells {current_state_reg[0]}]  \
-  [get_cells {current_state_reg[1]}]  \
-  [get_cells {current_state_reg[2]}]  \
-  [get_cells {current_state_reg[3]}]  \
   [get_cells {prev_instruction_address_reg[0]}]  \
+  [get_cells {prev_instruction_address_reg[10]}]  \
+  [get_cells {prev_instruction_address_reg[11]}]  \
+  [get_cells {prev_instruction_address_reg[12]}]  \
+  [get_cells {prev_instruction_address_reg[13]}]  \
+  [get_cells {prev_instruction_address_reg[14]}]  \
+  [get_cells {prev_instruction_address_reg[15]}]  \
+  [get_cells {prev_instruction_address_reg[16]}]  \
+  [get_cells {prev_instruction_address_reg[17]}]  \
+  [get_cells {prev_instruction_address_reg[18]}]  \
+  [get_cells {prev_instruction_address_reg[19]}]  \
+  [get_cells {prev_instruction_address_reg[1]}]  \
+  [get_cells {prev_instruction_address_reg[20]}]  \
+  [get_cells {prev_instruction_address_reg[21]}]  \
+  [get_cells {prev_instruction_address_reg[22]}]  \
+  [get_cells {prev_instruction_address_reg[23]}]  \
+  [get_cells {prev_instruction_address_reg[24]}]  \
+  [get_cells {prev_instruction_address_reg[25]}]  \
+  [get_cells {prev_instruction_address_reg[26]}]  \
+  [get_cells {prev_instruction_address_reg[27]}]  \
+  [get_cells {prev_instruction_address_reg[28]}]  \
+  [get_cells {prev_instruction_address_reg[29]}]  \
+  [get_cells {prev_instruction_address_reg[2]}]  \
+  [get_cells {prev_instruction_address_reg[30]}]  \
+  [get_cells {prev_instruction_address_reg[31]}]  \
+  [get_cells {prev_instruction_address_reg[3]}]  \
+  [get_cells {prev_instruction_address_reg[4]}]  \
+  [get_cells {prev_instruction_address_reg[5]}]  \
+  [get_cells {prev_instruction_address_reg[6]}]  \
+  [get_cells {prev_instruction_address_reg[7]}]  \
+  [get_cells {prev_instruction_address_reg[8]}]  \
+  [get_cells {prev_instruction_address_reg[9]}]  \
+  [get_cells {prev_instruction_reg[0]}]  \
+  [get_cells {prev_instruction_reg[10]}]  \
   [get_cells {prev_instruction_reg[11]}]  \
-  [get_cells prev_read_request_reg]  \
+  [get_cells {prev_instruction_reg[12]}]  \
+  [get_cells {prev_instruction_reg[13]}]  \
+  [get_cells {prev_instruction_reg[14]}]  \
+  [get_cells {prev_instruction_reg[15]}]  \
+  [get_cells {prev_instruction_reg[16]}]  \
+  [get_cells {prev_instruction_reg[17]}]  \
+  [get_cells {prev_instruction_reg[18]}]  \
+  [get_cells {prev_instruction_reg[19]}]  \
+  [get_cells {prev_instruction_reg[1]}]  \
+  [get_cells {prev_instruction_reg[20]}]  \
+  [get_cells {prev_instruction_reg[21]}]  \
+  [get_cells {prev_instruction_reg[22]}]  \
+  [get_cells {prev_instruction_reg[23]}]  \
+  [get_cells {prev_instruction_reg[24]}]  \
+  [get_cells {prev_instruction_reg[25]}]  \
+  [get_cells {prev_instruction_reg[26]}]  \
+  [get_cells {prev_instruction_reg[27]}]  \
+  [get_cells {prev_instruction_reg[28]}]  \
+  [get_cells {prev_instruction_reg[29]}]  \
+  [get_cells {prev_instruction_reg[2]}]  \
+  [get_cells {prev_instruction_reg[30]}]  \
+  [get_cells {prev_instruction_reg[31]}]  \
+  [get_cells {prev_instruction_reg[3]}]  \
+  [get_cells {prev_instruction_reg[4]}]  \
+  [get_cells {prev_instruction_reg[5]}]  \
+  [get_cells {prev_instruction_reg[6]}]  \
+  [get_cells {prev_instruction_reg[7]}]  \
+  [get_cells {prev_instruction_reg[8]}]  \
+  [get_cells {prev_instruction_reg[9]}]  \
   [get_cells {prev_rw_address_reg[0]}]  \
   [get_cells {prev_rw_address_reg[10]}]  \
   [get_cells {prev_rw_address_reg[11]}]  \
@@ -5337,13 +5488,18 @@ group_path -name I2C -from [list \
   [get_cells reset_reg_reg]  \
   [get_cells csr_mcause_interrupt_flag_reg]  \
   [get_cells {csr_mcycle_reg[0]}]  \
+  [get_cells {csr_mcycle_reg[10]}]  \
   [get_cells {csr_mcycle_reg[11]}]  \
   [get_cells {csr_mcycle_reg[12]}]  \
   [get_cells {csr_mcycle_reg[13]}]  \
   [get_cells {csr_mcycle_reg[14]}]  \
   [get_cells {csr_mcycle_reg[15]}]  \
+  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[17]}]  \
+  [get_cells {csr_mcycle_reg[18]}]  \
   [get_cells {csr_mcycle_reg[19]}]  \
   [get_cells {csr_mcycle_reg[1]}]  \
+  [get_cells {csr_mcycle_reg[20]}]  \
   [get_cells {csr_mcycle_reg[21]}]  \
   [get_cells {csr_mcycle_reg[22]}]  \
   [get_cells {csr_mcycle_reg[23]}]  \
@@ -5354,21 +5510,26 @@ group_path -name I2C -from [list \
   [get_cells {csr_mcycle_reg[28]}]  \
   [get_cells {csr_mcycle_reg[29]}]  \
   [get_cells {csr_mcycle_reg[2]}]  \
+  [get_cells {csr_mcycle_reg[30]}]  \
   [get_cells {csr_mcycle_reg[31]}]  \
-  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[35]}]  \
+  [get_cells {csr_mcycle_reg[39]}]  \
   [get_cells {csr_mcycle_reg[3]}]  \
-  [get_cells {csr_mcycle_reg[48]}]  \
+  [get_cells {csr_mcycle_reg[43]}]  \
+  [get_cells {csr_mcycle_reg[47]}]  \
   [get_cells {csr_mcycle_reg[4]}]  \
-  [get_cells {csr_mcycle_reg[50]}]  \
-  [get_cells {csr_mcycle_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[54]}]  \
+  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[55]}]  \
   [get_cells {csr_mcycle_reg[56]}]  \
   [get_cells {csr_mcycle_reg[58]}]  \
+  [get_cells {csr_mcycle_reg[59]}]  \
   [get_cells {csr_mcycle_reg[5]}]  \
   [get_cells {csr_mcycle_reg[60]}]  \
-  [get_cells {csr_mcycle_reg[61]}]  \
+  [get_cells {csr_mcycle_reg[62]}]  \
   [get_cells {csr_mcycle_reg[63]}]  \
+  [get_cells {csr_mcycle_reg[6]}]  \
   [get_cells {csr_mcycle_reg[7]}]  \
+  [get_cells {csr_mcycle_reg[8]}]  \
   [get_cells {csr_mcycle_reg[9]}]  \
   [get_cells {csr_mepc_reg[10]}]  \
   [get_cells {csr_mepc_reg[11]}]  \
@@ -5420,11 +5581,13 @@ group_path -name I2C -from [list \
   [get_cells csr_mie_msie_reg]  \
   [get_cells csr_mie_mtie_reg]  \
   [get_cells {csr_minstret_reg[0]}]  \
+  [get_cells {csr_minstret_reg[10]}]  \
   [get_cells {csr_minstret_reg[11]}]  \
   [get_cells {csr_minstret_reg[12]}]  \
   [get_cells {csr_minstret_reg[13]}]  \
   [get_cells {csr_minstret_reg[14]}]  \
   [get_cells {csr_minstret_reg[15]}]  \
+  [get_cells {csr_minstret_reg[18]}]  \
   [get_cells {csr_minstret_reg[19]}]  \
   [get_cells {csr_minstret_reg[1]}]  \
   [get_cells {csr_minstret_reg[21]}]  \
@@ -5436,19 +5599,32 @@ group_path -name I2C -from [list \
   [get_cells {csr_minstret_reg[27]}]  \
   [get_cells {csr_minstret_reg[28]}]  \
   [get_cells {csr_minstret_reg[29]}]  \
+  [get_cells {csr_minstret_reg[2]}]  \
   [get_cells {csr_minstret_reg[30]}]  \
   [get_cells {csr_minstret_reg[31]}]  \
   [get_cells {csr_minstret_reg[33]}]  \
+  [get_cells {csr_minstret_reg[34]}]  \
   [get_cells {csr_minstret_reg[35]}]  \
+  [get_cells {csr_minstret_reg[36]}]  \
+  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_minstret_reg[3]}]  \
+  [get_cells {csr_minstret_reg[43]}]  \
+  [get_cells {csr_minstret_reg[44]}]  \
+  [get_cells {csr_minstret_reg[45]}]  \
+  [get_cells {csr_minstret_reg[46]}]  \
+  [get_cells {csr_minstret_reg[47]}]  \
+  [get_cells {csr_minstret_reg[48]}]  \
   [get_cells {csr_minstret_reg[49]}]  \
   [get_cells {csr_minstret_reg[4]}]  \
-  [get_cells {csr_minstret_reg[50]}]  \
   [get_cells {csr_minstret_reg[51]}]  \
   [get_cells {csr_minstret_reg[52]}]  \
   [get_cells {csr_minstret_reg[54]}]  \
+  [get_cells {csr_minstret_reg[55]}]  \
   [get_cells {csr_minstret_reg[56]}]  \
+  [get_cells {csr_minstret_reg[57]}]  \
   [get_cells {csr_minstret_reg[58]}]  \
+  [get_cells {csr_minstret_reg[59]}]  \
   [get_cells {csr_minstret_reg[5]}]  \
   [get_cells {csr_minstret_reg[60]}]  \
   [get_cells {csr_minstret_reg[61]}]  \
@@ -5456,7 +5632,8 @@ group_path -name I2C -from [list \
   [get_cells {csr_minstret_reg[63]}]  \
   [get_cells {csr_minstret_reg[6]}]  \
   [get_cells {csr_minstret_reg[7]}]  \
-  [get_cells csr_mstatus_mpie_reg]  \
+  [get_cells {csr_minstret_reg[8]}]  \
+  [get_cells {csr_minstret_reg[9]}]  \
   [get_cells {csr_mtvec_reg[0]}]  \
   [get_cells {csr_mtvec_reg[10]}]  \
   [get_cells {csr_mtvec_reg[11]}]  \
@@ -5488,6 +5665,10 @@ group_path -name I2C -from [list \
   [get_cells {csr_mtvec_reg[7]}]  \
   [get_cells {csr_mtvec_reg[8]}]  \
   [get_cells {csr_mtvec_reg[9]}]  \
+  [get_cells {current_state_reg[0]}]  \
+  [get_cells {current_state_reg[1]}]  \
+  [get_cells {current_state_reg[2]}]  \
+  [get_cells {current_state_reg[3]}]  \
   [get_cells {integer_file_reg[10][0]}]  \
   [get_cells {integer_file_reg[10][10]}]  \
   [get_cells {integer_file_reg[10][11]}]  \
@@ -6480,41 +6661,11 @@ group_path -name I2C -from [list \
   [get_cells {integer_file_reg[9][7]}]  \
   [get_cells {integer_file_reg[9][8]}]  \
   [get_cells {integer_file_reg[9][9]}]  \
-  [get_cells {prev_instruction_reg[0]}]  \
-  [get_cells {prev_instruction_reg[10]}]  \
-  [get_cells {prev_instruction_reg[12]}]  \
-  [get_cells {prev_instruction_reg[13]}]  \
-  [get_cells {prev_instruction_reg[14]}]  \
-  [get_cells {prev_instruction_reg[15]}]  \
-  [get_cells {prev_instruction_reg[16]}]  \
-  [get_cells {prev_instruction_reg[17]}]  \
-  [get_cells {prev_instruction_reg[18]}]  \
-  [get_cells {prev_instruction_reg[19]}]  \
-  [get_cells {prev_instruction_reg[1]}]  \
-  [get_cells {prev_instruction_reg[20]}]  \
-  [get_cells {prev_instruction_reg[21]}]  \
-  [get_cells {prev_instruction_reg[22]}]  \
-  [get_cells {prev_instruction_reg[23]}]  \
-  [get_cells {prev_instruction_reg[24]}]  \
-  [get_cells {prev_instruction_reg[25]}]  \
-  [get_cells {prev_instruction_reg[26]}]  \
-  [get_cells {prev_instruction_reg[27]}]  \
-  [get_cells {prev_instruction_reg[28]}]  \
-  [get_cells {prev_instruction_reg[29]}]  \
-  [get_cells {prev_instruction_reg[2]}]  \
-  [get_cells {prev_instruction_reg[30]}]  \
-  [get_cells {prev_instruction_reg[31]}]  \
-  [get_cells {prev_instruction_reg[3]}]  \
-  [get_cells {prev_instruction_reg[4]}]  \
-  [get_cells {prev_instruction_reg[5]}]  \
-  [get_cells {prev_instruction_reg[6]}]  \
-  [get_cells {prev_instruction_reg[7]}]  \
-  [get_cells {prev_instruction_reg[8]}]  \
-  [get_cells {prev_instruction_reg[9]}]  \
-  [get_cells {program_counter_reg[1]}]  \
+  [get_cells prev_load_request_reg]  \
+  [get_cells prev_read_request_reg]  \
   [get_cells prev_write_request_reg]  \
   [get_cells {program_counter_reg[0]}]  \
-  [get_cells csr_mstatus_mie_reg]  \
+  [get_cells {program_counter_reg[1]}]  \
   [get_cells {program_counter_reg[2]}]  \
   [get_cells {program_counter_reg[3]}]  \
   [get_cells {program_counter_reg[4]}]  \
@@ -6545,69 +6696,42 @@ group_path -name I2C -from [list \
   [get_cells {program_counter_reg[29]}]  \
   [get_cells {program_counter_reg[30]}]  \
   [get_cells {program_counter_reg[31]}]  \
+  [get_cells {csr_mcause_code_reg[2]}]  \
   [get_cells {csr_mcause_code_reg[4]}]  \
-  [get_cells {csr_mcause_code_reg[3]}]  \
-  [get_cells {csr_mcause_code_reg[1]}]  \
-  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells csr_mstatus_mie_reg]  \
   [get_cells {csr_mcycle_reg[32]}]  \
   [get_cells {csr_minstret_reg[32]}]  \
   [get_cells {csr_mcycle_reg[42]}]  \
   [get_cells {csr_minstret_reg[42]}]  \
-  [get_cells {csr_mcycle_reg[10]}]  \
-  [get_cells {csr_minstret_reg[10]}]  \
-  [get_cells {csr_mcycle_reg[43]}]  \
-  [get_cells {csr_minstret_reg[43]}]  \
   [get_cells {csr_mcycle_reg[44]}]  \
-  [get_cells {csr_minstret_reg[44]}]  \
   [get_cells {csr_mcycle_reg[45]}]  \
-  [get_cells {csr_minstret_reg[45]}]  \
   [get_cells {csr_mcycle_reg[46]}]  \
-  [get_cells {csr_minstret_reg[46]}]  \
-  [get_cells {csr_mcycle_reg[47]}]  \
-  [get_cells {csr_minstret_reg[47]}]  \
-  [get_cells {csr_minstret_reg[48]}]  \
-  [get_cells {csr_mcycle_reg[16]}]  \
+  [get_cells {csr_mcycle_reg[48]}]  \
   [get_cells {csr_minstret_reg[16]}]  \
-  [get_cells {csr_mcycle_reg[49]}]  \
-  [get_cells {csr_mcycle_reg[17]}]  \
   [get_cells {csr_minstret_reg[17]}]  \
-  [get_cells {csr_mcycle_reg[18]}]  \
-  [get_cells {csr_minstret_reg[18]}]  \
-  [get_cells {csr_mcycle_reg[51]}]  \
+  [get_cells {csr_mcycle_reg[49]}]  \
+  [get_cells {csr_minstret_reg[50]}]  \
+  [get_cells {csr_mcycle_reg[50]}]  \
   [get_cells {csr_mcycle_reg[33]}]  \
-  [get_cells {csr_mcycle_reg[52]}]  \
-  [get_cells {csr_mcycle_reg[20]}]  \
-  [get_cells {csr_minstret_reg[20]}]  \
   [get_cells {csr_minstret_reg[53]}]  \
-  [get_cells {csr_mcycle_reg[55]}]  \
-  [get_cells {csr_minstret_reg[55]}]  \
+  [get_cells {csr_mcycle_reg[53]}]  \
+  [get_cells {csr_mcycle_reg[54]}]  \
   [get_cells {csr_mcycle_reg[57]}]  \
-  [get_cells {csr_minstret_reg[57]}]  \
-  [get_cells {csr_mcycle_reg[59]}]  \
-  [get_cells {csr_minstret_reg[59]}]  \
+  [get_cells {csr_mcycle_reg[61]}]  \
   [get_cells {csr_mcycle_reg[34]}]  \
-  [get_cells {csr_minstret_reg[34]}]  \
-  [get_cells {csr_minstret_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[30]}]  \
-  [get_cells {csr_mcycle_reg[62]}]  \
-  [get_cells {csr_mcycle_reg[35]}]  \
-  [get_cells {csr_minstret_reg[36]}]  \
-  [get_cells {csr_minstret_reg[37]}]  \
+  [get_cells {csr_mcycle_reg[36]}]  \
+  [get_cells {csr_mcycle_reg[37]}]  \
   [get_cells {csr_mcycle_reg[38]}]  \
   [get_cells {csr_minstret_reg[38]}]  \
-  [get_cells {csr_mcycle_reg[6]}]  \
-  [get_cells {csr_mcycle_reg[39]}]  \
-  [get_cells {csr_minstret_reg[39]}]  \
   [get_cells {csr_mcycle_reg[40]}]  \
   [get_cells {csr_minstret_reg[40]}]  \
-  [get_cells {csr_mcycle_reg[8]}]  \
-  [get_cells {csr_minstret_reg[8]}]  \
   [get_cells {csr_mcycle_reg[41]}]  \
   [get_cells {csr_minstret_reg[41]}]  \
-  [get_cells {csr_minstret_reg[9]}]  \
-  [get_cells prev_load_request_reg]  \
-  [get_cells {csr_mcause_code_reg[2]}]  \
-  [get_cells {csr_mcycle_reg[37]}] ]
+  [get_cells {csr_mcause_code_reg[3]}]  \
+  [get_cells {csr_mcause_code_reg[1]}]  \
+  [get_cells {csr_mcause_code_reg[0]}]  \
+  [get_cells {csr_minstret_reg[20]}]  \
+  [get_cells {csr_mcycle_reg[52]}] ]
 group_path -name I2O -from [list \
   [get_ports clock]  \
   [get_ports reset]  \

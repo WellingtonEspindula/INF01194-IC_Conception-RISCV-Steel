@@ -230,7 +230,7 @@ puts "============================"
 puts "Synthesis Finished ........."
 puts "============================"
 
-write_design -innovus -base_name innovus/busca_padrao
+write_design -innovus -base_name innovus/rvsteel_core
 
 file copy [get_db / .stdout_log] ${_LOG_PATH}/.
 

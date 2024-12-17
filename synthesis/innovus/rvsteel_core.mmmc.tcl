@@ -1,6 +1,6 @@
 #################################################################################
 #
-# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Wed Nov 13 23:22:17 -0300 2024
+# Created by Genus(TM) Synthesis Solution GENUS15.22 - 15.20-s024_1 on Tue Dec 17 07:34:07 -0300 2024
 #
 #################################################################################
 
@@ -36,7 +36,7 @@ create_delay_corner -name default_emulate_delay_corner \
 
 ## constraint_mode
 create_constraint_mode -name default_emulate_constraint_mode \
-    -sdc_files { innovus//busca_padrao.default_emulate_constraint_mode.sdc }
+    -sdc_files { innovus//rvsteel_core.default_emulate_constraint_mode.sdc }
 
 ## analysis_view
 create_analysis_view -name default_emulate_view \

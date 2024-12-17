@@ -13,7 +13,7 @@
 ##Loading std cell libs / netlist / constraints / setting vdd/gnd
 set_db init_power_nets {VDD vdd vdd!}
 set_db init_ground_nets {VSS GND gnd gnd!}
-source innovus/busca_padrao.invs_setup.tcl
+source innovus/rvsteel_core.invs_setup.tcl
 #source innovus/top.invs_setup.tcl
 read_io_file iopads.io
 

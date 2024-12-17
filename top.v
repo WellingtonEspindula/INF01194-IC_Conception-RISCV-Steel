@@ -382,8 +382,8 @@ module top(clock,
 	wire  [63:0]  real_time_clock_I;
 
 	rvsteel_core top_INST(
-	  .clock(clock_I),
-  	  .reset(reset_I),
+          .clock(clock_I),
+  	     .reset(reset_I),
           .halt(halt_I),
           .rw_address(rw_address_O),
           .read_data(read_data_I),
@@ -424,6 +424,27 @@ module top(clock,
           .irq_software_response(irq_software_response),
           .irq_fast(irq_fast),
           .irq_fast_response(irq_fast_response),
-          .real_time_clock(real_time_clock)
+          .real_time_clock(real_time_clock),
+
+          .clock_I(clock_I),
+          .reset_I(reset_I),
+          .halt_I(halt_I),
+          .rw_address_O(rw_address_O),
+          .read_data_I(read_data_I),
+          .read_request_O(read_request_O),
+          .read_response_I(read_response_I),
+          .write_data_O(write_data_O),
+          .write_strobe_O(write_strobe_O),
+          .write_request_O(write_request_O),
+          .write_response_I(write_response_I),
+          .irq_external_I(irq_external_I),
+          .irq_external_response_O(irq_external_response_O),
+          .irq_timer_I(irq_timer_I),
+          .irq_timer_response_O(irq_timer_response_O),
+          .irq_software_I(irq_software_I),
+          .irq_software_response_O(irq_software_response_O),
+          .irq_fast_I(irq_fast_I),
+          .irq_fast_response_O(irq_fast_response_O),
+          .real_time_clock_I(real_time_clock_I)
 	);
 endmodule

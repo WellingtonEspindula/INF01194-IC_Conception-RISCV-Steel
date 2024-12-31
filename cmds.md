@@ -11,6 +11,13 @@ source /scripts/set_cadence.csh
 source /scripts/set_cadence_innovus161.csh
 ```
 
+## RTL Simulation
+
+```csh
+cd sim/tb
+irun -f file_list.f
+```
+
 ## Logical Synthesis
 
 ```csh

@@ -6,3 +6,12 @@ innovus.log*
 innovus.cmd*
 genus.log*
 genus.cmd*
+sim/rtl/irun.history
+sim/tb/irun.history
+sim/rtl/irun.log
+sim/tb/irun.key
+sim/tb/irun.log
+*irun*
+*waves.shm*
+INCA_libs
+.simvision

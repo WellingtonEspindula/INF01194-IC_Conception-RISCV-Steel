@@ -1,141 +1,138 @@
 # RISC-V Steel Core Synthesis
 
-## About the project
-This project aims to develop the synthesis of the RISC-V Steel Core using Cadence EDA tools.
-The following commands were used to do the whole synthesis of the SoC.
+## About the Project
+This project focuses on synthesizing the RISC-V Steel Core using Cadence EDA tools. The synthesis process encompasses both logical and physical synthesis steps to integrate the Steel Core into a complete SoC design.
 
-THe RISC-V Steel was developed and maintened by Rafael Calçada. According to its own [GitHub page](https://github.com/riscv-steel/riscv-steel):
+The RISC-V Steel Core, developed and maintained by [Rafael Calçada](https://github.com/riscv-steel/riscv-steel), is a microcontroller design written in Verilog that implements the RV32I instruction set. As per its [GitHub page](https://github.com/riscv-steel/riscv-steel):
 
 > RISC-V Steel is a microcontroller design developed in Verilog that implements the RV32I instruction set of RISC-V. It is designed for easy, seamless integration into embedded systems, systems-on-chip (SoC), and FPGA designs, facilitating the rapid development of innovative RISC-V applications.
 
-The RISC-V Steel version used for this project was the release [v2.2](https://github.com/riscv-steel/riscv-steel/releases/tag/v2.2). There are plenty of major differences between the RISC-V Steel v2.2 with the version available in OpenCores. I'll not discussing them.
+This project uses version [v2.2](https://github.com/riscv-steel/riscv-steel/releases/tag/v2.2) of the RISC-V Steel Core, which introduces significant updates compared to the version available on OpenCores. Details about these differences are beyond the scope of this document.
 
-## Setup
+---
 
-Change the bash to `tcsh`
+## Prerequisites
 
-```bash
-tcsh
-```
+1. Ensure you are using the `tcsh` shell.
+2. Have Cadence EDA tools installed and properly configured.
+3. Source the required environment scripts:
+    ```tcsh
+    source /scripts/set_cadence.csh
+    source /scripts/set_cadence_innovus161.csh
+    ```
 
-Add cadence and innovus scripts.
+4. Set the project root directory:
+    ```tcsh
+    set PROJ_HOME=`pwd`
+    ```
 
+---
+
+## Workflow Overview
+
+### 1. RTL Simulation
+
+Run the RTL simulation to verify the behavior of the Verilog code:
 ```tcsh
-source /scripts/set_cadence.csh
-source /scripts/set_cadence_innovus161.csh
-```
-
-### Setup project root dir
-
-```
-set PROJ_HOME=`pwd`
-```
-
-## RTL Simulation
-
-Simulate the RTL code.
-
-```csh
 cd "$PROJ_HOME/sim/tb"
 irun -f file_list.f
 ```
 
-## Logical Synthesis
+### 2. Logical Synthesis
 
-Then, run the logical synthesis.
-
-```csh
+Execute logical synthesis with Cadence Genus:
+```tcsh
 cd "$PROJ_HOME/synthesis/"
 genus -files synth.tcl
 ```
 
-The expected output should be something like the following.
-
-```result
+The synthesis process should generate an output similar to this:
+```plaintext
 ** To load the database source innovus/rvsteel_core.invs_setup.tcl in an Innovus session.
-** To load the database source innovus/rvsteel_core.genus_setup.tcl in an Genus(TM) Synthesis Solution session.
+** To load the database source innovus/rvsteel_core.genus_setup.tcl in a Genus(TM) Synthesis Solution session.
 Finished exporting design data for 'rvsteel_core' (command execution time mm:ss cpu = 00:00, real = 00:02).
 ```
 
-After finish the synthesis, open the GUI.
-
-```console
-$ genus@root:> gui_show
+To open the Genus GUI after synthesis:
+```tcsh
+gui_show
 ```
 
+---
 
-## Physical Synthesis
+### 3. Physical Synthesis
 
-### Add top with the PADs
-
-Need to copy the `top.v` to the top of the synthetized `rvsteel_core.v`.
-
-```csh
+#### Preparing the Top Module
+Integrate the `top.v` file with the synthesized `rvsteel_core.v`:
+```tcsh
 cp $PROJ_HOME/top.v /tmp/rvsteel_core.v && \
-echo "\n" >> /tmp/rvsteel_core.v && cat $PROJ_HOME/synthesis/innovus/rvsteel_core.v >> /tmp/rvsteel_core.v && \
+echo "\n" >> /tmp/rvsteel_core.v && \
+cat $PROJ_HOME/synthesis/innovus/rvsteel_core.v >> /tmp/rvsteel_core.v && \
 mv /tmp/rvsteel_core.v $PROJ_HOME/synthesis/innovus/rvsteel_core.v && \
 echo "Successfully added the pads' top!"
 ```
 
-### Synthesis
-
-Open innovus with the GUI.
-
-```csh
+#### Physical Synthesis Steps
+Launch Innovus in GUI mode:
+```tcsh
 innovus -common_ui
 ```
 
-Then run all the synthesis steps.
-
-```csh
-source physical/1_init.tcl              # 1. foorplaning
-source physical/2_power_plan.tcl        # 2. power planning
-source physical/3_pin_clock.tcl         # 3. 
-source physical/4_nano_route.tcl        # 4. nano route
-source physical/5_fillers_reports.tcl   # 5. fillers 
-source physical/6_netlist_sdf.tcl       # 6. 
+Run the synthesis steps in sequence:
+```tcsh
+source physical/1_init.tcl              # Floorplanning
+source physical/2_power_plan.tcl        # Power planning
+source physical/3_pin_clock.tcl         # Pin and clock planning
+source physical/4_nano_route.tcl        # Nano routing
+source physical/5_fillers_reports.tcl   # Adding fillers
+source physical/6_netlist_sdf.tcl       # Netlist generation and SDF
 ```
 
-or 
-
-```csh
+Alternatively, execute all steps in one command:
+```tcsh
 source run_all.tcl
 ```
 
-### Verification
+---
 
-#### Check DRC
+### 4. Verification
 
-```csh
+#### Design Rule Check (DRC)
+```tcsh
 check_drc
 ```
 
-#### Check Connectivity
-
-```csh
+#### Connectivity Check
+```tcsh
 check_connectivity -type all -error 1000 -warning 50
 ```
 
-### Check Geometry
+#### Geometry Check
+This step requires manual interaction in the Innovus GUI.
 
-Sorry, it must be done via GUI
+#### Timing Analysis
+- **Pre-CTS Timing**:
+  ```tcsh
+  time_design -pre_cts
+  ```
 
-### Timing verification
+- **Post-CTS Timing**:
+  ```tcsh
+  eval_legacy {timeDesign -postCTS}
+  ```
 
-Pre CTS
+- **Post-Routing Timing**:
+  ```tcsh
+  eval_legacy {timeDesign -postRoute}
+  ```
 
-```csh
-time_design -pre_cts
-```
+---
 
-Post CTS
+## Additional Notes
+- Ensure all tool versions are compatible with the project's requirements.
+- Refer to Cadence documentation for further details on specific commands and processes.
 
-```csh
-eval_legacy {timeDesign -postCTS}
-```
-
-Post Route
-
-```csh
-eval_legacy {timeDesign -postRoute}
-```
+## Authors
+- Lucas Ferst Balbinot
+- Vitória Lentz
+- Wellington Machado de Espindula

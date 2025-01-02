@@ -3,7 +3,7 @@
 ## About the Project
 This project focuses on synthesizing the RISC-V Steel Core using Cadence EDA tools. The synthesis process encompasses both logical and physical synthesis steps to integrate the Steel Core into a complete SoC design.
 
-The RISC-V Steel Core, developed and maintained by [Rafael Calçada](https://github.com/riscv-steel/riscv-steel), is a microcontroller design written in Verilog that implements the RV32I instruction set. As per its [GitHub page](https://github.com/riscv-steel/riscv-steel):
+The RISC-V Steel Core, developed and maintained by [Rafael Calçada](https://github.com/rafaelcalcada), is a microcontroller design written in Verilog that implements the RV32I instruction set. As per its [GitHub page](https://github.com/riscv-steel/riscv-steel):
 
 > RISC-V Steel is a microcontroller design developed in Verilog that implements the RV32I instruction set of RISC-V. It is designed for easy, seamless integration into embedded systems, systems-on-chip (SoC), and FPGA designs, facilitating the rapid development of innovative RISC-V applications.
 
@@ -133,6 +133,6 @@ This step requires manual interaction in the Innovus GUI.
 - Refer to Cadence documentation for further details on specific commands and processes.
 
 ## Authors
-- Lucas Ferst Balbinot
-- Vitória Lentz
-- Wellington Machado de Espindula
+- [Lucas Ferst Balbinot](https://github.com/lucas-balbinot)
+- [Vitória Lentz](https://github.com/VitoriaLentz)
+- [Wellington Machado de Espindula](https:/github.com/WellingtonEspindula)

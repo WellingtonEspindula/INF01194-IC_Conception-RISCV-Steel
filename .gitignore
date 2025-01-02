@@ -15,3 +15,7 @@ sim/tb/irun.log
 *waves.shm*
 INCA_libs
 .simvision
+synthesis/.rs*.tstamp
+.rvsteel_core*
+.top*
+*.bak

@@ -49,6 +49,21 @@ cd "$PROJ_HOME/synthesis/"
 genus -files synth.tcl
 ```
 
+The expected output should be something like the following.
+
+```result
+** To load the database source innovus/rvsteel_core.invs_setup.tcl in an Innovus session.
+** To load the database source innovus/rvsteel_core.genus_setup.tcl in an Genus(TM) Synthesis Solution session.
+Finished exporting design data for 'rvsteel_core' (command execution time mm:ss cpu = 00:00, real = 00:02).
+```
+
+After finish the synthesis, open the GUI.
+
+```console
+$ genus@root:> gui_show
+```
+
+
 ## Physical Synthesis
 
 ### Add top with the PADs
@@ -56,10 +71,10 @@ genus -files synth.tcl
 Need to copy the `top.v` to the top of the synthetized `rvsteel_core.v`.
 
 ```csh
-cp $PROJ_HOME/top.v /tmp/rvsteel_core.v
-echo "\n" >> /tmp/rvsteel_core.v
-cat $PROJ_HOME/synthesis/innovus/rvsteel_core.v >> /tmp/rvsteel_core.v
-mv /tmp/rvsteel_core.v $PROJ_HOME/synthesis/innovus/rvsteel_core.v
+cp $PROJ_HOME/top.v /tmp/rvsteel_core.v && \
+echo "\n" >> /tmp/rvsteel_core.v && cat $PROJ_HOME/synthesis/innovus/rvsteel_core.v >> /tmp/rvsteel_core.v && \
+mv /tmp/rvsteel_core.v $PROJ_HOME/synthesis/innovus/rvsteel_core.v && \
+echo "Successfully added the pads' top!"
 ```
 
 ### Synthesis
@@ -85,4 +100,42 @@ or
 
 ```csh
 source run_all.tcl
+```
+
+### Verification
+
+#### Check DRC
+
+```csh
+check_drc
+```
+
+#### Check Connectivity
+
+```csh
+check_connectivity -type all -error 1000 -warning 50
+```
+
+### Check Geometry
+
+Sorry, it must be done via GUI
+
+### Timing verification
+
+Pre CTS
+
+```csh
+time_design -pre_cts
+```
+
+Post CTS
+
+```csh
+eval_legacy {timeDesign -postCTS}
+```
+
+Post Route
+
+```csh
+eval_legacy {timeDesign -postRoute}
 ```

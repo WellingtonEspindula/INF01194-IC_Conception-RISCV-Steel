@@ -7,7 +7,7 @@ The RISC-V Steel Core, developed and maintained by [Rafael Calçada](https://git
 
 > RISC-V Steel is a microcontroller design developed in Verilog that implements the RV32I instruction set of RISC-V. It is designed for easy, seamless integration into embedded systems, systems-on-chip (SoC), and FPGA designs, facilitating the rapid development of innovative RISC-V applications.
 
-This project uses version [v2.2](https://github.com/riscv-steel/riscv-steel/releases/tag/v2.2) of the RISC-V Steel Core, which introduces significant updates compared to the version available on OpenCores. Details about these differences are beyond the scope of this document.
+This project uses version [v2.1](https://github.com/riscv-steel/riscv-steel/releases/tag/v2.1) of the RISC-V Steel Core, which introduces significant updates compared to the version available on OpenCores. Details about these differences are beyond the scope of this document.
 
 ---
 

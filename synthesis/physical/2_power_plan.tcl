@@ -15,7 +15,7 @@ connect_global_net vdd -type pg_pin -pin_base_name vdd! -inst_base_name *
 connect_global_net gnd -type pg_pin -pin_base_name gnd! -inst_base_name *
 
 ##Generate power ring with 0.25um spacing (between metal lines), 0.5um width and 1.5um offset from the core. Use M3 for horizontal and M4 for vertical
-eval_legacy { addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer METTP -type core_rings -jog_distance 0.315 -threshold 0.315 -nets {vdd gnd} -follow core -stacked_via_bottom_layer MET1 -layer {bottom MET3 top MET3 right MET4 left MET4} -width 1 -spacing 0.46 -offset 0.315 }
+eval_legacy { addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer METTP -type core_rings -jog_distance 0.315 -threshold 0.315 -nets {vdd gnd} -follow core -stacked_via_bottom_layer MET1 -layer {bottom MET3 top MET3 right MET4 left MET4} -width 0.44 -spacing 0.46 -offset 0.315 }
 
 route_special -connect { blockPin padPin padRing corePin floatingStripe } -layer_change_range { MET1 METTP } -block_pin_target { nearesttarget } -pad_pin_port_connect { allPort oneGeom } -pad_pin_target { nearestTarget } -core_pin_target { firstAfterRowEnd } -floating_stripe_target { blockRing padRing ring stripe ringPin blockPin followPin } -allow_jogging 1 -crossover_via_layer_range { MET1 METTP } -nets { vdd gnd } -allow_layer_change 1 -block_pin use_lef -target_via_layer_range { MET1 METTP }
 

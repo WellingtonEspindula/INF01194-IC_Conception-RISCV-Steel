@@ -35,7 +35,7 @@ This project uses version [v2.1](https://github.com/riscv-steel/riscv-steel/rele
 Run the RTL simulation to verify the behavior of the Verilog code:
 ```tcsh
 cd "$PROJ_HOME/sim/tb"
-irun -f file_list.f
+irun -f ../rtl/file_list.f
 ```
 
 ### 2. Logical Synthesis

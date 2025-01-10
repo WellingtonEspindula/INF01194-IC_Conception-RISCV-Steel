@@ -90,7 +90,7 @@ source physical/6_netlist_sdf.tcl       # Netlist generation and SDF
 
 Alternatively, execute all steps in one command:
 ```tcsh
-source run_all.tcl
+source physical/run_all.tcl
 ```
 
 ---
@@ -111,20 +111,17 @@ check_connectivity -type all -error 1000 -warning 50
 This step requires manual interaction in the Innovus GUI.
 
 #### Timing Analysis
-- **Pre-CTS Timing**:
-  ```tcsh
-  time_design -pre_cts
-  ```
-
-- **Post-CTS Timing**:
-  ```tcsh
-  eval_legacy {timeDesign -postCTS}
-  ```
 
 - **Post-Routing Timing**:
   ```tcsh
   eval_legacy {timeDesign -postRoute}
   ```
+
+Or, execute geometry verification via GUI (make sure to execute it firts) and execute all the verification steps in one command:
+
+```tcsh
+  source physical/check.tcl
+```
 
 ---
 

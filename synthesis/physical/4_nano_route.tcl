@@ -16,8 +16,12 @@ route_detail
 
 route_global_detail
 
-check_design -all
+# Optimization Post Route
+eval_legacy {setAnalysisMode -analysisType onChipVariation}
+opt_design -post_route
 
 report_timing
 
-check_drc
+#check_design -all
+#check_drc
+

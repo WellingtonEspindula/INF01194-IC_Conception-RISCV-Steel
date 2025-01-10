@@ -1,4 +1,3 @@
--smartorder -work work -sv -top unit_tests -notimingchecks -gui -access +rw
+-smartorder -work work -sv -top unit_tests -notimingchecks -gui -access +rw -incdir . 
 ../../rtl/rvsteel_core.v
-../tb/unit_tests.v
-
+unit_tests.v

@@ -19,7 +19,7 @@ time_design -pre_cts
 
 # CTS
 eval_legacy {setCTSMode -engine ck}
-#eval_legacy {clockDesign -genSpecOnly Clock.ctstch}
+eval_legacy {clockDesign -genSpecOnly Clock.ctstch}
 eval_legacy {clockDesign -specFile Clock.ctstch -outDir clk_report}
 
 # Post-CTS opt
